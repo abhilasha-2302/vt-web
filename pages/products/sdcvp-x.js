@@ -198,7 +198,7 @@ export default function SDCVPXPage() {
       name: "Advanced",
       features: [
         "All Standard Features",
-        "Assertions",
+        "Assertion Plan",
         "Enhanced Specification Evolution",
         "Testplan Alignment"
         
@@ -209,7 +209,7 @@ export default function SDCVPXPage() {
       name: "Premium",
       features: [
         "All Advanced Features",
-        "Coverage and Mapping",
+        "Coverage Plan",
         "Specification Variables Debugging",
         "Priority Support",
         "Advanced Traceability Matrix"
