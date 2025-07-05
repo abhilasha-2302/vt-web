@@ -190,8 +190,7 @@ export default function SDCVPXPage() {
       features: [
         "Comprehensive Verification Plan",
         "Features, Test Points & Scenarios",
-        "Configuration Management",
-        "Specification Alignment"
+        "Configuration & Constraints Plan"
       ],
       highlight: false
     },
@@ -199,9 +198,10 @@ export default function SDCVPXPage() {
       name: "Advanced",
       features: [
         "All Standard Features",
-        "Constraints and Assertions",
+        "Assertions",
         "Enhanced Specification Evolution",
-        "Advanced Traceability Matrix"
+        "Testplan Alignment"
+        
       ],
       highlight: false
     },
@@ -211,7 +211,8 @@ export default function SDCVPXPage() {
         "All Advanced Features",
         "Coverage and Mapping",
         "Specification Variables Debugging",
-        "Priority Support"
+        "Priority Support",
+        "Advanced Traceability Matrix"
       ],
       highlight: true
     },
@@ -413,9 +414,9 @@ export default function SDCVPXPage() {
       <section className="py-20 bg-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Proven Across IP/SoC/ASIC/FPGA</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Proven Across Wide Spectrum from IP to Silicon</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Real results from actual deployments across semiconductors, automotive, datacenter, consumer electronics and more
+              Enabling scalable veriication for standard and custom appplications
             </p>
             
             <button
