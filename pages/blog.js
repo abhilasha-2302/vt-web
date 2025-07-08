@@ -10,7 +10,7 @@ export default function BlogPage() {
     {
       id: 1,
       url: "https://verification-challenges-solutions.blogspot.com/2025/06/verification-in-age-of-pci-express-gen7.html",
-      title: "Verification in the Age of PCI Express Gen7",
+      title: "Verification in the Age of PCI Express Gen7: AI in IP Verification",
       description: "Exploring the challenges and solutions for verification in next-generation PCI Express implementations.",
       date: "June 2025",
       category: "PCIe Verification"

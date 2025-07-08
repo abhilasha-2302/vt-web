@@ -188,9 +188,14 @@ export default function AiMlSolutionsPage() {
               <a href="#industries" className="text-gray-700 hover:text-gray-900 font-medium">Industries</a>
               <a href="#benefits" className="text-gray-700 hover:text-gray-900 font-medium">Key Benefits</a>
             </div>
-            <button className="bg-gray-900 hover:bg-gray-800 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+            <a
+              href="https://forms.gle/kRqgCBJqn98PieQc6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gray-900 hover:bg-gray-800 text-white font-medium py-2 px-4 rounded transition-colors duration-200"
+            >
               Get Started
-            </button>
+            </a>
           </div>
         </div>
       </section>

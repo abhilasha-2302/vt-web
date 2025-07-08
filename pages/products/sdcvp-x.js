@@ -103,13 +103,13 @@ export default function SDCVPXPage() {
   const securityFeatures = [
     {
       icon: <Lock className="h-6 w-6" />,
-      title: "Proprietary AI Algorithms",
-      description: "Advanced machine learning models trained on industry specifications, not your sensitive data"
+      title: "Proprietary ML Models & Algorithms",
+      description: "Utilizing proprietary Machine Learning models, leveraging OpenAI, with multi-layered proprietary validation paths"
     },
     {
       icon: <Shield className="h-6 w-6" />,
-      title: "On-Premises Deployment",
-      description: "Your specifications and design never leave your secure environment - complete data sovereignty"
+      title: "On-premises Integration & Deployment",
+      description: "Designs and specifications remain fully contained within your environment at all times"
     },
     {
       icon: <Database className="h-6 w-6" />,
@@ -467,7 +467,7 @@ export default function SDCVPXPage() {
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div className="text-center">
                     <div className="text-2xl font-bold">5+</div>
-                    <div className="text-sm text-green-200">Verified IPs</div>
+                    <div className="text-sm text-green-200">Verified Designs</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold">12K+</div>
@@ -648,4 +648,3 @@ export default function SDCVPXPage() {
     </div>
   </Layout>);
 }
-
