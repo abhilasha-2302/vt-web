@@ -37,27 +37,27 @@ export default function SDCVPXPage() {
   const [activeStory, setActiveStory] = useState(0);
   const [showIntegrations, setShowIntegrations] = useState(false);
 
-  const crisisStories = [
+    const crisisStories = [
     {
-      title: "The Billion Dollar Chip Shortage Crisis",
-      impact: "Global supply chain disruption",
-      description: "When verification failures cascade into silicon re-spins, entire industries halt. Automotive, consumer electronics, and critical infrastructure all depend on chips that work the first time.",
-      stat: "14%",
-      statLabel: "First-time silicon success rate"
+      title: "The Hidden Cost of Manual Verification",
+      impact: "Legacy methods slow down progress and silently drain resources",
+      description: "Your best engineers are stuck writing test plans instead of solving design problems. Missed coverage leads to escaped bugs, costly field failures, and long-term brand damage.",
+      stat: "60-70%",
+      statLabel: "(Of total design effort goes into verification)"
     },
     {
       title: "Project Delays Epidemic",
-      impact: "75% of projects behind schedule",
-      description: "Every day of delay costs millions. When verification consumes 60-70% of design effort with manual processes, teams struggle to meet market windows.",
+      impact: "75% of chip projects miss their deadlines due to verification bottlenecks",
+      description: "Every day of delay burns millions. Manual verification consumes 60–70% of design effort — leaving teams overworked, behind schedule, and missing critical market windows.",
       stat: "40-50%",
-      statLabel: "Average debug cycle time"
+      statLabel: "(Of total project time lost in debugging)"
     },
     {
-      title: "The Hidden Cost of Manual Verification",
-      impact: "Billions lost in inefficiencies",
-      description: "Engineers spend more time creating verification plans than innovating. Coverage gaps lead to escaped bugs, field failures, and brand damage.",
-      stat: "60-70%",
-      statLabel: "Of design effort on verification"
+      title: "The Billion Dollar Chip Crisis",
+      impact: "Each failed tape-out triggers costly delays, fueling the global chip shortage",
+      description: "Verification failures lead to re-spins, missed product launches, and stalled industries. From EVs to smartphones, every post-fab failure adds to the cost. First-time silicon success is rare — but it doesn’t have to be.",
+      stat: "14%",
+      statLabel: "(First-time silicon success rate is low)"
     }
   ];
 
@@ -201,7 +201,6 @@ export default function SDCVPXPage() {
         "Assertion Plan",
         "Enhanced Specification Evolution",
         "Testplan Alignment"
-        
       ],
       highlight: false
     },
@@ -210,21 +209,11 @@ export default function SDCVPXPage() {
       features: [
         "All Advanced Features",
         "Coverage Plan",
-        "Specification Variables Debugging",
-        "Priority Support",
-        "Advanced Traceability Matrix"
+        "Spec Variables, Debug Info & Traceability",
+        "Auto-Generated Test Bench",
+        "Priority Support & Success Manager"
       ],
       highlight: true
-    },
-    {
-      name: "Premium+",
-      features: [
-        "All Premium Features",
-        "Auto-Generated Test Bench",
-        "Custom Integration Support",
-        "Dedicated Success Manager"
-      ],
-      highlight: false
     }
   ];
 
@@ -281,7 +270,7 @@ export default function SDCVPXPage() {
 </h1>
                 
                 <p className="text-xl mb-8 text-gray-100 leading-relaxed">
-                  Smart Verification tool for First-Time Silicon Success
+                  AI- Driven Verification tool for First-Time Silicon Success
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -416,7 +405,7 @@ export default function SDCVPXPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Proven Across Wide Spectrum from IP to Silicon</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Enabling scalable veriication for standard and custom appplications
+              Enabling scalable verification for standard and custom applications
             </p>
             
             <button
@@ -496,7 +485,7 @@ export default function SDCVPXPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {tiers.map((tier, index) => (
               <div key={index} className={`relative p-8 rounded-2xl border-2 ${
                 tier.highlight 
@@ -511,7 +500,7 @@ export default function SDCVPXPage() {
                   </div>
                 )}
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">{tier.name}</h3>
-                <ul className="space-y-4">
+                <ul className="space-y-4 min-h-[200px]">
                   {tier.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start space-x-3">
                       <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -615,6 +604,7 @@ export default function SDCVPXPage() {
           )}
         </div>
       </section>
+
 
       {/* CTA Section */}
       <section className="py-20 bg-green-600 text-white">

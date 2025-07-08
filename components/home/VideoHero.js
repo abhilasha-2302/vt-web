@@ -6,19 +6,6 @@ import { useRouter } from 'next/router'; // Add this import
 
 const stories = [
   {
-    id: 'story-1',
-    src: '/videos/sdcvp.webm',
-    title: 'AI Chip Verification',
-    heading: 'Introducing SdCvP-X',
-    headingTrademark: '™',
-    subheading: 'Verification Acceleration AI Tool',
-    description: 'Boost Verification and Productivity - First-Time Silicon Success',
-    link: '/products/sdcvp-x',
-    discoverText: 'Discover Advanced Verification',
-    discoverLink: '/products/sdcvp-x',
-    watchLink: '/videos/ai-chip-development'
-  },
-  {
     id: 'story-2',
     src: '/videos/aiml.webm',
     title: 'AI Smart Solutions',
@@ -30,6 +17,32 @@ const stories = [
     discoverLink: '/solutions/ai-ml',
     watchLink: '/videos/ai-engineering'
   },
+
+  {
+    id: 'story-1',
+    src: '/videos/sdcvp.webm',
+    title: 'AI Chip Verification',
+    heading: 'Introducing SdCvP-X',
+    headingTrademark: '™',
+    subheading: 'AI- Driven Verification Automation Tool',
+    description: 'Boost Verification and Productivity - First-Time Silicon Success',
+    link: '/products/sdcvp-x',
+    discoverText: 'Discover Advanced Verification',
+    discoverLink: '/products/sdcvp-x',
+    watchLink: '/videos/ai-chip-development'
+  },
+  // {
+  //   id: 'story-2',
+  //   src: '/videos/aiml.webm',
+  //   title: 'AI Smart Solutions',
+  //   heading: 'Discover AI',
+  //   subheading: 'Driving Intelligent Transformation',
+  //   description: 'Rapid, Secure, Adaptive Innovation',
+  //   link: '/solutions/multi-die',
+  //   discoverText: 'Discover Smart Engineering',
+  //   discoverLink: '/solutions/ai-ml',
+  //   watchLink: '/videos/ai-engineering'
+  // },
   {
     id: 'story-3',
     src: '/videos/blockchain.webm',
