@@ -265,7 +265,7 @@ export default function SDCVPXPage() {
 <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
   SdCvP-X<span className="text-lg text-green-300 align-top relative -top-1">™</span>
   <span className="text-lg md:text-xl block font-normal text-green-200 mt-2">
-    Specification Driven Comprehensive Verification Acceleration Tool
+    Specification Driven Comprehensive Verification Automation Tool
   </span>
 </h1>
                 

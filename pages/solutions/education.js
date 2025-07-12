@@ -120,7 +120,7 @@ export default function EducationSolutionsPage() {
   return (
     <Layout>
       <Head>
-        <title>Education & EdTech Solutions | Veripoint Technologies</title>
+        <title>EdTech Solutions | Veripoint Technologies</title>
         <meta name="description" content="AI-driven educational platforms that personalize learning, improve retention, and ensure assessment integrity across K-12, higher education, and corporate training" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -142,7 +142,7 @@ export default function EducationSolutionsPage() {
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-8">
-              Education & EdTech Solutions
+              EdTech Solutions
             </h1>
             <Link href="/video-pageedu">
               <button className="inline-flex items-center bg-white hover:bg-gray-100 text-gray-900 font-medium py-3 px-6 rounded transition-colors duration-200">
