@@ -65,19 +65,19 @@ export default function SDCVPXPage() {
     {
       icon: <FileText className="h-8 w-8" />,
       title: "Specification Driven V&V Plan Generator",
-      description: "Automatically generates features, test points, and test scenarios by configuration from design specification.",
+      description: "Automatically generates features, test points, and test scenarios with configurations and constraints from the design specification ensuring comprehensive coverage",
       color: "bg-blue-50 text-blue-600"
     },
     {
       icon: <Target className="h-8 w-8" />,
       title: "Constraints, Coverage & Assertions",
-      description: "Auto-generates constraints, coverage metrics, and assertions aligned with design specification requirements",
+      description: "Automatically generates coverage and assertion plan from design specification",
       color: "bg-green-50 text-green-600"
     },
     {
       icon: <Bug className="h-8 w-8" />,
       title: "Debug Assist Engine",
-      description: "Provides traceability matrix and root-cause accelerators for efficient debugging and issue resolution",
+      description: "Automatically generates specification variables for efficient design and efficient root cause analysis",
       color: "bg-red-50 text-red-600"
     },
     {
@@ -270,7 +270,7 @@ export default function SDCVPXPage() {
 </h1>
                 
                 <p className="text-xl mb-8 text-gray-100 leading-relaxed">
-                  AI- Driven Verification tool for First-Time Silicon Success
+                  AI - Driven Verification tool for First-Time Silicon Success
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -378,8 +378,7 @@ export default function SDCVPXPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Secure & Proprietary</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Built with semiconductor-grade security using proprietary AI algorithms. 
-              Your specifications never leave your environment.
+              Built with strong data security and proprietary AI algorithms. Your specifications and design never leave your environment.
             </p>
           </div>
 
