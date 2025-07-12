@@ -267,43 +267,43 @@ export default function EducationSolutionsPage() {
       </section>
 
       {/* Key Benefits Section */}
-      <section id="benefits" className="py-16 bg-gradient-to-r from-green-600 to-emerald-600">
+      <section id="benefits" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-normal text-white mb-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-normal text-slate-900 mb-4">
               Why Choose AI-Powered Education?
             </h2>
-            <p className="text-lg text-white">
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               Discover how AI transforms modern education and training operations
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center bg-white rounded-lg p-6 shadow-md">
-              <div className="bg-green-100 rounded-full p-3 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <svg className="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            <div className="text-center bg-green-50 rounded-lg p-8 shadow-sm border border-green-100">
+              <div className="bg-white rounded-full p-4 w-20 h-20 mx-auto mb-6 flex items-center justify-center shadow-sm">
+                <svg className="h-10 w-10 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
               </div>
-              <h3 className="text-xl font-normal text-gray-900 mb-2">Personalized Learning</h3>
-              <p className="text-gray-600">AI adapts to individual learning styles and pace for optimal educational outcomes</p>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Personalized Learning</h3>
+              <p className="text-slate-600 leading-relaxed">AI adapts to individual learning styles and pace for optimal educational outcomes</p>
             </div>
-            <div className="text-center bg-white rounded-lg p-6 shadow-md">
-              <div className="bg-green-100 rounded-full p-3 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <svg className="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="text-center bg-green-50 rounded-lg p-8 shadow-sm border border-green-100">
+              <div className="bg-white rounded-full p-4 w-20 h-20 mx-auto mb-6 flex items-center justify-center shadow-sm">
+                <svg className="h-10 w-10 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-normal text-gray-900 mb-2">Academic Integrity</h3>
-              <p className="text-gray-600">Advanced proctoring and assessment tools ensure fair and secure evaluations</p>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Academic Integrity</h3>
+              <p className="text-slate-600 leading-relaxed">Advanced proctoring and assessment tools ensure fair and secure evaluations</p>
             </div>
-            <div className="text-center bg-white rounded-lg p-6 shadow-md">
-              <div className="bg-green-100 rounded-full p-3 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <svg className="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            <div className="text-center bg-green-50 rounded-lg p-8 shadow-sm border border-green-100">
+              <div className="bg-white rounded-full p-4 w-20 h-20 mx-auto mb-6 flex items-center justify-center shadow-sm">
+                <svg className="h-10 w-10 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9" />
                 </svg>
               </div>
-              <h3 className="text-xl font-normal text-gray-900 mb-2">Improved Retention</h3>
-              <p className="text-gray-600">Data-driven insights and early intervention systems boost student success rates</p>
+              <h3 className="text-xl font-semibold text-slate-900 mb-3">Improved Retention</h3>
+              <p className="text-slate-600 leading-relaxed">Data-driven insights and early intervention systems boost student success rates</p>
             </div>
           </div>
         </div>
