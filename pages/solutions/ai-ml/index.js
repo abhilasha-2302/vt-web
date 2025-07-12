@@ -39,7 +39,7 @@ export default function AiMlSolutionsPage() {
       ]
     },
     {
-      name: 'Education & Ed-tech',
+      name: 'Ed-tech',
       slug: 'education',
       description: 'Personalized learning experiences, automated grading, and intelligent tutoring systems with adaptive learning algorithms.',
       icon: '🎓',
