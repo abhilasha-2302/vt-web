@@ -28,9 +28,22 @@ export default function SmartCitiesSolutionsPage() {
       ]
     },
     {
+      name: 'Smart Radiation Safety Network',
+      slug: 'crowd-behavior-analytics',
+      description: 'Monitors crowd dynamics to predict and prevent safety incidents. AI algorithms analyze movement patterns and identify potential risks before they escalate.',
+      icon: '👥',
+      features: [
+        'IoT Sensor Integration – Aggregates data from networked radiation detectors.',
+        'Exposure Tracking – Personalizes your cumulative dose alerts.',
+        'Emergency Routes – AI-recommended safest paths in real-time.',
+        'Voice-Activated – Hands-free queries and emergency commands.',
+        'Secure & Anonymous – No personal data stored, encrypted alerts.'
+      ]
+    },
+    {
       name: 'License Plate Recognition (LPR)',
       slug: 'license-plate-recognition',
-      description: 'Facilitates secure access control and smart parking management. High-accuracy OCR technology for automated vehicle identification and tracking.',
+      description: 'AI integrates with IoT radiation sensors to monitor real-time exposure levels, predict risk zones, and guide you through safest paths during emergencies—all via voice commands or instant alerts.',
       icon: '🚗',
       features: [
         'Automated vehicle identification',

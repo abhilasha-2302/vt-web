@@ -8,12 +8,14 @@ export default function EnergyUtilitiesPage() {
     {
       name: 'Smart Grid Optimization Suite',
       slug: 'smart-grid-optimization',
-      description: 'Harnessing AI and real-time data, our solution integrates seamlessly with SCADA/EMS systems to forecast demand-supply fluctuations and enable instant load balancing—enhancing grid reliability and operational responsiveness.',
+      description: 'AI-driven platform leverages IoT sensors and machine learning to autonomously stabilize your power network—preventing blackouts, reducing costs, and balancing loads seamlessly.',
       icon: '⚡',
       features: [
-        'Real-time grid monitoring',
-        'Demand forecasting',
-        'Load balancing automation'
+        'Outage Prediction – Anticipate failures before they happen using transformer health analytics.',
+        'Surge Protection – Auto-isolate voltage spikes in <2ms to protect infrastructure.',
+'Insulation Fault Detection – Pinpoint degradation in cables/substations with 99.2% accuracy.',
+'Demand Forecasting – AI models adjust to weather, events, and usage patterns in real-time.',
+'Load Balancing Automation – Dynamically reroute power to prevent overloads.'
       ]
     },
     {

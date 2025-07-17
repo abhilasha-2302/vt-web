@@ -101,9 +101,21 @@ export default function HealthcareSolutionsPage() {
       features: [
         'Automated patient triage',
         'Symptom assessment',
-        'Care pathway direction'
+        'Care pathway direction', 
       ]
     },
+    {
+      name: 'Mental Health Agent',
+      slug: 'medical-chatbots-triage',
+      description: 'AI companion offers a safe, anonymous space to share your thoughts—anytime, anywhere. Speak freely through voice chat and receive compassionate, judgment-free responses in real time. No accounts, no tracking, just instant support when you need it most.',
+      icon: '💬',
+      features: [
+        'Voice Chat',
+        '100% Private',
+        'Instant Replies', 
+      ]
+    },
+    
     {
       name: 'Healthcare Analytics Platform',
       slug: 'healthcare-analytics-platform',
