@@ -120,8 +120,8 @@ export default function RetailSolutionsPage() {
   return (
     <Layout>
       <Head>
-        <title>Retail & E-Commerce Solutions| Veripoint Technologies</title>
-        <meta name="description" content="AI-driven retail solutions for personalized shopping experiences, dynamic pricing, and automated customer service" />
+        <title>AI in Retail – Personalization & Automation | Veripoint</title>
+        <meta name="description" content="Retail AI for personalization, dynamic pricing, and automated customer service. Veripoint powers intelligent e-commerce and omnichannel growth." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

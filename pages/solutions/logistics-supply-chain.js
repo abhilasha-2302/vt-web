@@ -120,8 +120,8 @@ export default function LogisticsSolutionsPage() {
   return (
     <Layout>
       <Head>
-        <title>Logistics & Supply Chain Solutions| Veripoint Technologies</title>
-        <meta name="description" content="AI-driven logistics solutions for route optimization, blockchain tracking, and supply chain transparency" />
+        <title>AI in Logistics – Smart Supply Chain | Veripoint</title>
+        <meta name="description" content="AI-powered logistics solutions for route optimization, blockchain traceability, and supply chain visibility. Veripoint enables operational precision." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

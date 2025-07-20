@@ -120,8 +120,8 @@ export default function EducationSolutionsPage() {
   return (
     <Layout>
       <Head>
-        <title>Ed-Tech Solutions | Veripoint Technologies</title>
-        <meta name="description" content="AI-driven educational platforms that personalize learning, improve retention, and ensure assessment integrity across K-12, higher education, and corporate training" />
+        <title>AI in Education – Personalized EdTech Platforms | Veripoint</title>
+        <meta name="description" content="AI-powered EdTech for personalized learning, smart assessments, and training outcomes. Veripoint delivers innovation across K-12 to corporate learning." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

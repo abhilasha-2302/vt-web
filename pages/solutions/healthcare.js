@@ -132,8 +132,8 @@ export default function HealthcareSolutionsPage() {
   return (
     <Layout>
       <Head>
-        <title>Healthcare Solutions| Veripoint Technologies</title>
-        <meta name="description" content="AI-driven healthcare solutions for diagnostic imaging, personalized treatment, patient engagement, and clinical decision support" />
+        <title>AI in Healthcare – Diagnostics & Patient Care | Veripoint</title>
+        <meta name="description" content="AI healthcare solutions for diagnostics, personalized care, and clinical support. Veripoint enables smarter, faster, patient-centric outcomes." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

@@ -133,8 +133,8 @@ export default function SmartCitiesSolutionsPage() {
   return (
     <Layout>
       <Head>
-        <title>Smart Cities & Security Solutions | Veripoint Technologies</title>
-        <meta name="description" content="Intelligent urban infrastructure solutions that enhance public safety, optimize traffic management, and enable seamless security integration for smart cities" />
+        <title>AI for Smart Cities & Urban Security | Veripoint</title>
+        <meta name="description" content="AI-driven smart city solutions for safety, traffic flow, and urban intelligence. Veripoint enables secure, efficient, future-ready cities." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

@@ -120,8 +120,8 @@ export default function LegalTechSolutionsPage() {
   return (
     <Layout>
       <Head>
-        <title>Legal Tech Solutions| Veripoint Technologies</title>
-        <meta name="description" content="AI-powered legal technology solutions for contract analysis, compliance monitoring, document automation, and legal research" />
+        <title>LegalTech & AI – Contract & Compliance Tools | Veripoint</title>
+        <meta name="description" content="AI legal solutions for contract review, compliance, document automation, and research. Veripoint enables faster, smarter legal operations." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

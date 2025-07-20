@@ -120,8 +120,8 @@ export default function AgricultureSolutionsPage() {
   return (
     <Layout>
       <Head>
-        <title>Agriculture & Agribusiness Solutions | Veripoint Technologies</title>
-        <meta name="description" content="AI-driven agricultural solutions for crop optimization, climate risk management, and smart farming operations" />
+        <title>AI in Agriculture – Smart Farming Solutions | Veripoint</title>
+        <meta name="description" content="AI-driven agri-tech for crop optimization, smart farming, and climate risk insights. Veripoint enables data-led precision in modern agriculture." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

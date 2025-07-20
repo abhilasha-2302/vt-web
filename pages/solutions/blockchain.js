@@ -120,8 +120,8 @@ export default function BlockchainSolutionsPage() {
   return (
     <Layout>
       <Head>
-        <title>Blockchain Solutions | Veripoint Technologies</title>
-        <meta name="description" content="Industry-specific blockchain solutions for secure, transparent, and automated business processes" />
+        <title>Blockchain Solutions for Enterprises | Veripoint</title>
+        <meta name="description" content="Blockchain solutions for secure, transparent, and automated enterprise processes. Veripoint customizes scalable, industry-grade blockchain systems." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

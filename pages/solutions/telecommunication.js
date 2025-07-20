@@ -120,8 +120,8 @@ export default function TelecommunicationsSolutionsPage() {
   return (
     <Layout>
       <Head>
-        <title>Telecommunications Solutions | Veripoint Technologies</title>
-        <meta name="description" content="AI-powered telecommunications solutions for network optimization, customer service, and operational excellence" />
+        <title>AI in Telecom – Network & CX Optimization | Veripoint</title>
+        <meta name="description" content="AI solutions for telecom network optimization, predictive analytics, and CX automation. Veripoint enables agile, data-driven telecom operations." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

@@ -8,8 +8,8 @@ export default function ServicesPage() {
   return (
     <Layout>
       <Head>
-        <title>Verification Services | Veripoint Technologies</title>
-        <meta name="description" content="Comprehensive verification services for semiconductor and beyond" />
+        <title>Design Verification & Engineering Services – Veripoint Technologies</title>
+        <meta name="description" content="AI-driven hardware verification services from IP and SoC to ASIC and FPGA. Veripoint accelerates tape-outs and time-to-market with deep semiconductor expertise." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

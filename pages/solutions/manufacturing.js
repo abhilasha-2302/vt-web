@@ -120,8 +120,8 @@ export default function ManufacturingSolutionsPage() {
   return (
     <Layout>
       <Head>
-        <title>Manufacturing Solutions | Veripoint Technologies</title>
-        <meta name="description" content="AI-powered manufacturing solutions for quality control, predictive maintenance, and digital simulation" />
+        <title>AI in Manufacturing – Predictive & Smart Ops | Veripoint</title>
+        <meta name="description" content="AI in manufacturing for predictive maintenance, quality control, and simulation. Veripoint enables smart factory transformation and efficiency." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

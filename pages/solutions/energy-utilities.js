@@ -122,8 +122,8 @@ export default function EnergyUtilitiesPage() {
   return (
     <Layout>
       <Head>
-        <title>Energy & Utilities Solutions | Veripoint Technologies</title>
-        <meta name="description" content="AI-driven energy solutions for smart grid optimization, predictive maintenance, and sustainable power infrastructure" />
+        <title>AI for Energy & Utilities – Smart Grid | Veripoint Technologies</title>
+        <meta name="description" content="Smart energy solutions using AI for grid optimization, predictive maintenance, and sustainable infrastructure. Veripoint drives energy transformation." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

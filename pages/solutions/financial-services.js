@@ -120,8 +120,8 @@ export default function FinancialServicesSolutionsPage() {
   return (
     <Layout>
       <Head>
-        <title>Financial Services| Veripoint Technologies</title>
-        <meta name="description" content="AI-driven financial solutions for algorithmic trading, fraud detection, risk analytics, and regulatory compliance across banking and fintech" />
+        <title>AI in Finance – Risk, Compliance & Trading | Veripoint</title>
+        <meta name="description" content="AI solutions for trading, fraud detection, risk analysis, and regulatory compliance. Veripoint powers digital innovation in finance and fintech." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

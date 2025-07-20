@@ -120,8 +120,8 @@ export default function InsuranceSolutionsPage() {
   return (
     <Layout>
       <Head>
-        <title>Insurance Solutions | Veripoint Technologies</title>
-        <meta name="description" content="AI-powered insurance solutions for underwriting, claims processing, and customer engagement" />
+        <title>AI in Insurance – Claims & Underwriting | Veripoint</title>
+        <meta name="description" content="AI-powered insurance solutions for automated underwriting, claims, and customer engagement. Veripoint drives smarter digital insurance workflows." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
