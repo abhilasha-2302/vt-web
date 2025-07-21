@@ -220,6 +220,7 @@ export default function SDCVPXPage() {
   <Head>
         <title>SdCvP-X™ - AI-Driven Verification Tool for First-Time Silicon Success</title>
         <meta name="description" content="SdCvP-X™ is a specification-driven comprehensive verification automation tool that delivers AI-powered verification for semiconductor designs, ensuring first-time silicon success with 60-70% faster verification cycles." />
+        <link rel="icon" href="/favicon.ico" />
   </Head>
    // ✅ Define the brochure download function
   const downloadBrochure = () => {
