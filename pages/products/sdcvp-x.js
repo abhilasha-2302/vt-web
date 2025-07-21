@@ -216,6 +216,10 @@ export default function SDCVPXPage() {
       highlight: true
     }
   ];
+  <Head>
+        <title>SDCvP‑X™ – AI Verification Tool for First-Time Silicon Success | Veripoint</title>
+        <meta name="description" content="Accelerate chip design cycles with SDCvP‑X™, Veripoint’s AI-powered verification platform. Automate constraints validation and enable first-time silicon success." />
+  </Head>
 
    // ✅ Define the brochure download function
   const downloadBrochure = () => {

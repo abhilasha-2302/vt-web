@@ -220,7 +220,7 @@ export default function AiMlSolutionsPage() {
     <Layout>
       <Head>
         <title>Silicon Verification | AI Innovation | Blockchain Solutions – Veripoint</title>
-        <meta name="description" content="aExplore our advanced portfolio: silicon design verification, AI enterprise applications, and scalable blockchain platforms. Trusted by global leaders for robust, transformative solutions." />
+        <meta name="description" content="Explore our advanced portfolio: silicon design verification, AI enterprise applications, and scalable blockchain platforms. Trusted by global leaders for robust, transformative solutions." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
