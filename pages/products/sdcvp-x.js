@@ -1,4 +1,5 @@
 import Layout from '@/components/layout/Layout';
+import Head from 'next/head';
 import {
   ChevronRight,
   Zap,
@@ -217,10 +218,9 @@ export default function SDCVPXPage() {
     }
   ];
   <Head>
-        <title>SDCvP‑X™ – AI Verification Tool for First-Time Silicon Success | Veripoint</title>
-        <meta name="description" content="Accelerate chip design cycles with SDCvP‑X™, Veripoint’s AI-powered verification platform. Automate constraints validation and enable first-time silicon success." />
+        <title>SdCvP-X™ - AI-Driven Verification Tool for First-Time Silicon Success</title>
+        <meta name="description" content="SdCvP-X™ is a specification-driven comprehensive verification automation tool that delivers AI-powered verification for semiconductor designs, ensuring first-time silicon success with 60-70% faster verification cycles." />
   </Head>
-
    // ✅ Define the brochure download function
   const downloadBrochure = () => {
     const link = document.createElement("a");
