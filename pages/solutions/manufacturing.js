@@ -6,6 +6,18 @@ import Link from 'next/link';
 export default function ManufacturingSolutionsPage() {
   const services = [
     {
+      name: 'Virtual Data Analytics',
+      slug: 'virtual-data-analytics',
+      description: 'Empowering manufacturers with real-time video intelligence to reduce downtime, ensure safety, and optimize operations.',
+      icon: '📊',
+      features: [
+        'Predictive Maintenance from Machine Behavior',
+        'AI-based Visual Defect Detection on Production Lines',
+        'Real-time Safety & PPE Compliance Monitoring',
+        'Intelligent Tracking of Assets & Inventory Flow'
+      ]
+    },
+    {
       name: 'Visual Quality Inspection',
       slug: 'visual-quality-inspection',
       description: 'AI-enabled computer vision systems detect defects and quality issues in real-time during production, ensuring consistent product quality and reducing waste.',
