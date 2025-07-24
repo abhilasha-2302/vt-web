@@ -6,69 +6,14 @@ import Link from 'next/link';
 export default function AiMlSolutionsPage() {
   const industries = [
     {
-      name: 'Telecommunication',
-      slug: 'telecommunication',
-      description: 'Advanced AI solutions for network optimization, predictive maintenance, and customer experience enhancement with real-time analytics and automated fault detection.',
-      icon: '📡',
+      name: 'Manufacturing',
+      slug: 'manufacturing',
+      description: 'Quality control automation, production optimization, and predictive maintenance with computer vision and IoT integration.',
+      icon: '🏭',
       features: [
-        'Network Performance Optimization',
-        'Predictive Equipment Maintenance',
-        'Customer Experience Analytics'
-      ]
-    },
-    {
-      name: 'Agriculture',
-      slug: 'agriculture',
-      description: 'Smart farming solutions with precision agriculture, crop monitoring, and yield optimization using satellite imagery and IoT sensors.',
-      icon: '🌾',
-      features: [
-        'Precision Crop Monitoring',
-        'Smart Irrigation Systems',
-        'Yield Prediction Analytics'
-      ]
-    },
-    {
-      name: 'Insurance',
-      slug: 'insurance',
-      description: 'Risk assessment, fraud detection, and automated claims processing with AI-powered analytics and machine learning algorithms.',
-      icon: '🛡️',
-      features: [
-        'Risk Assessment Automation',
-        'Fraud Detection Systems',
-        'Automated Claims Processing'
-      ]
-    },
-    {
-      name: 'Ed-tech',
-      slug: 'education',
-      description: 'Personalized learning experiences, automated grading, and intelligent tutoring systems with adaptive learning algorithms.',
-      icon: '🎓',
-      features: [
-        'Personalized Learning Platforms',
-        'Automated Assessment Systems',
-        'Intelligent Tutoring Systems'
-      ]
-    },
-    {
-      name: 'Security & Smart-City Infrastructure',
-      slug: 'security-smart-city',
-      description: 'Intelligent surveillance, traffic management, and urban planning with AI-driven insights and real-time monitoring systems.',
-      icon: '🏙️',
-      features: [
-        'Intelligent Surveillance Systems',
-        'Traffic Management Optimization',
-        'Urban Planning Analytics'
-      ]
-    },
-    {
-      name: 'Energy, Utilities & Power Grids',
-      slug: 'energy-utilities',
-      description: 'Smart grid optimization, renewable energy management, and predictive maintenance for power infrastructure.',
-      icon: '⚡',
-      features: [
-        'Smart Grid Optimization',
-        'Renewable Energy Management',
-        'Infrastructure Predictive Maintenance'
+        'Quality Control Automation',
+        'Production Optimization',
+        'Predictive Maintenance Systems'
       ]
     },
     {
@@ -94,25 +39,25 @@ export default function AiMlSolutionsPage() {
       ]
     },
     {
-      name: 'Healthcare',
-      slug: 'healthcare',
-      description: 'Medical imaging analysis, drug discovery, and personalized treatment recommendations with AI-powered diagnostic tools.',
-      icon: '🏥',
+      name: 'Insurance',
+      slug: 'insurance',
+      description: 'Risk assessment, fraud detection, and automated claims processing with AI-powered analytics and machine learning algorithms.',
+      icon: '🛡️',
       features: [
-        'Medical Imaging Analysis',
-        'Drug Discovery Acceleration',
-        'Personalized Treatment Systems'
+        'Risk Assessment Automation',
+        'Fraud Detection Systems',
+        'Automated Claims Processing'
       ]
     },
     {
-      name: 'Manufacturing',
-      slug: 'manufacturing',
-      description: 'Quality control automation, production optimization, and predictive maintenance with computer vision and IoT integration.',
-      icon: '🏭',
+      name: 'Financial Services',
+      slug: 'financial-services',
+      description: 'Algorithmic trading, risk management, and fraud detection with advanced machine learning models and real-time analytics.',
+      icon: '💰',
       features: [
-        'Quality Control Automation',
-        'Production Optimization',
-        'Predictive Maintenance Systems'
+        'Algorithmic Trading Systems',
+        'Risk Management Analytics',
+        'Real-time Fraud Detection'
       ]
     },
     {
@@ -127,16 +72,73 @@ export default function AiMlSolutionsPage() {
       ]
     },
     {
-      name: 'Financial Services',
-      slug: 'financial-services',
-      description: 'Algorithmic trading, risk management, and fraud detection with advanced machine learning models and real-time analytics.',
-      icon: '💰',
+      name: 'Security & Smart-City Infrastructure',
+      slug: 'security-smart-city',
+      description: 'Intelligent surveillance, traffic management, and urban planning with AI-driven insights and real-time monitoring systems.',
+      icon: '🏙️',
       features: [
-        'Algorithmic Trading Systems',
-        'Risk Management Analytics',
-        'Real-time Fraud Detection'
+        'Intelligent Surveillance Systems',
+        'Traffic Management Optimization',
+        'Urban Planning Analytics'
+      ]
+    },
+    {
+      name: 'Energy, Utilities & Power Grids',
+      slug: 'energy-utilities',
+      description: 'Smart grid optimization, renewable energy management, and predictive maintenance for power infrastructure.',
+      icon: '⚡',
+      features: [
+        'Smart Grid Optimization',
+        'Renewable Energy Management',
+        'Infrastructure Predictive Maintenance'
+      ]
+    },
+    {
+      name: 'Healthcare',
+      slug: 'healthcare',
+      description: 'Medical imaging analysis, drug discovery, and personalized treatment recommendations with AI-powered diagnostic tools.',
+      icon: '🏥',
+      features: [
+        'Medical Imaging Analysis',
+        'Drug Discovery Acceleration',
+        'Personalized Treatment Systems'
+      ]
+    },
+    {
+      name: 'Telecommunication',
+      slug: 'telecommunication',
+      description: 'Advanced AI solutions for network optimization, predictive maintenance, and customer experience enhancement with real-time analytics and automated fault detection.',
+      icon: '📡',
+      features: [
+        'Network Performance Optimization',
+        'Predictive Equipment Maintenance',
+        'Customer Experience Analytics'
+      ]
+    },
+    {
+      name: 'Agriculture',
+      slug: 'agriculture',
+      description: 'Smart farming solutions with precision agriculture, crop monitoring, and yield optimization using satellite imagery and IoT sensors.',
+      icon: '🌾',
+      features: [
+        'Precision Crop Monitoring',
+        'Smart Irrigation Systems',
+        'Yield Prediction Analytics'
+      ]
+    },
+    
+    {
+      name: 'Ed-tech',
+      slug: 'education',
+      description: 'Personalized learning experiences, automated grading, and intelligent tutoring systems with adaptive learning algorithms.',
+      icon: '🎓',
+      features: [
+        'Personalized Learning Platforms',
+        'Automated Assessment Systems',
+        'Intelligent Tutoring Systems'
       ]
     }
+    
   ];
 
   return (
