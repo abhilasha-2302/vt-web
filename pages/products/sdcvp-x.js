@@ -95,7 +95,7 @@ export default function SDCVPXPage() {
     },
     {
       icon: <Workflow className="h-8 w-8" />,
-      title: "Workflow-Ready Test Automation",
+      title: "UVM Test Sequence Automation",
       description: "Automatically generate test sequences and integrate seamlessly with existing IP, ASIC, SoC, and custom interface workflows.",
       color: "bg-indigo-50 text-indigo-600"
     }
@@ -152,8 +152,8 @@ export default function SDCVPXPage() {
       name: "PCIe 6.2 IP",
       time: "~2 Hours",
       rows: "4000+",
-      industry: "Data Center",
-      description: "Complete verification plan with constraints, coverage, and assertions for high-speed PCIe 6.2 protocol"
+      industry: "Datacenter & Networking",
+      description: "Complete verification plan with constraints, coverage, and assertions for high-speed interfaces"
     },
     {
       name: "CXL 3.0 IP",
@@ -180,8 +180,8 @@ export default function SDCVPXPage() {
       name: "Custom PIPE Interface",
       time: "~1 Hour",
       rows: "1200+",
-      industry: "Multi-Protocol",
-      description: "Intel PIPE 7.0 interface covering PCIe, SATA, USB3.x, USB4.x, and DisplayPort 2.x protocols"
+      industry: "Datacenter & Networking",
+      description: "Comprehensive verification for Intel PIPE 7.0 interface covering PCIe, SATA, USB3.x, USB4.x, and DisplayPort 2.x protocols"
     }
   ];
 
@@ -270,12 +270,12 @@ export default function SDCVPXPage() {
 <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
   SdCvP-X<span className="text-lg text-green-300 align-top relative -top-1">™</span>
   <span className="text-lg md:text-xl block font-normal text-green-200 mt-2">
-    Specification Driven Comprehensive Verification Automation Tool
+    Specification Driven Comprehensive Verification
   </span>
 </h1>
                 
                 <p className="text-xl mb-8 text-gray-100 leading-relaxed">
-                  AI - Driven Verification tool for First-Time Silicon Success
+                  Electronic (Design) Verification AUtomation Tool
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -409,7 +409,7 @@ export default function SDCVPXPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Proven Across Wide Spectrum from IP to Silicon</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Enabling scalable verification for standard and custom applications
+              AI-Driven Verification for standard (eval version) and custom designs
             </p>
             
             <button
@@ -468,7 +468,7 @@ export default function SDCVPXPage() {
                   </div>
                 </div>
                 <p className="text-green-100 text-sm">
-                  From IP to ASIC to SOC to FPGA and more - proven across all semiconductor verticals
+                  From IP to SoC and Subsystem - proven across all semiconductor designs
                 </p>
               </div>
             </div>
@@ -485,7 +485,7 @@ export default function SDCVPXPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Choose Your Solution</h2>
             <p className="text-xl text-gray-600">
-              Flexible tiers designed to match your verification needs and scale with your projects.
+              Flexible solutions designed to match your verification workflows and scale with your projects.
             </p>
           </div>
 
