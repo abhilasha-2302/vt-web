@@ -275,7 +275,7 @@ export default function SDCVPXPage() {
 </h1>
                 
                 <p className="text-xl mb-8 text-gray-100 leading-relaxed">
-                  Electronic (Design) Verification AUtomation Tool
+                  Electronic (Design) Verification Automation Tool
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
