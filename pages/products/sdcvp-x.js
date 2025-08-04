@@ -149,18 +149,18 @@ export default function SDCVPXPage() {
 
   const provenIndustries = [
     {
-      name: "PCIe 6.2 IP",
+      name: "PCIe 6.0 IP",
       time: "~2 Hours",
       rows: "4000+",
       industry: "Datacenter & Networking",
-      description: "Complete verification plan with constraints, coverage, and assertions for high-speed interfaces"
+      description: "Complete verification plan with constraints, coverage, and assertions for high speed interfaces"
     },
     {
       name: "CXL 3.0 IP",
       time: "~1 Hour",
       rows: "2000+",
       industry: "Memory & Storage",
-      description: "Comprehensive verification framework for next-generation memory coherence interfaces"
+      description: "Comprehensive verification framework for next generation memory coherence interfaces"
     },
     {
       name: "ARM Cortex-A Series",
@@ -181,7 +181,7 @@ export default function SDCVPXPage() {
       time: "~1 Hour",
       rows: "1200+",
       industry: "Datacenter & Networking",
-      description: "Comprehensive verification for Intel PIPE 7.0 interface covering PCIe, SATA, USB3.x, USB4.x, and DisplayPort 2.x protocols"
+      description: "Comprehensive verification for Intel PIPE 7.0 interface covering PCIe 6.x, SATA 3.x, USB3.x, USB4.x, and DisplayPort 2.x designs"
     }
   ];
 
