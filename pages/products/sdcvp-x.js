@@ -149,7 +149,7 @@ export default function SDCVPXPage() {
 
   const provenIndustries = [
     {
-      name: "PCIe 6.0 IP",
+      name: "PCIe 6.x IP",
       time: "~2 Hours",
       rows: "4000+",
       industry: "Datacenter & Networking",
