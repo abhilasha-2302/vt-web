@@ -66,37 +66,37 @@ export default function SDCVPXPage() {
     {
       icon: <FileText className="h-8 w-8" />,
       title: "Specification Driven V&V Plan Generator",
-      description: "Automatically generates features, test points, and test scenarios with configurations and constraints from the design specification ensuring comprehensive coverage",
+      description: "Automatically generates verification (test) plan directly from the design specification",
       color: "bg-blue-50 text-blue-600"
     },
     {
       icon: <Target className="h-8 w-8" />,
       title: "Coverage & Assertions",
-      description: "Automatically generates coverage and assertion plan from design specification",
+      description: "Automatically generates coverage and assertion plan directly from the design specification",
       color: "bg-green-50 text-green-600"
     },
     {
       icon: <Workflow className="h-8 w-8" />,
       title: "UVM Test Sequence Automation",
-      description: "Automatically generate test sequences and integrate seamlessly with existing IP, ASIC, SoC, and custom interface workflows.",
+      description: "Automatically generates UVM test sequences directly from the design specification",
       color: "bg-indigo-50 text-indigo-600"
     },
     {
       icon: <Bug className="h-8 w-8" />,
       title: "Debug Assist Engine",
-      description: "Automatically generates specification variables for efficient design and efficient root cause analysis",
+      description: "Automatically embeds specification variables and register information for efficient design and efficient root cause analysis directly from the design specification",
       color: "bg-red-50 text-red-600"
     },
     {
       icon: <Activity className="h-8 w-8" />,
       title: "Specification Evolution",
-      description: "Automatically adapts verification plans as specifications evolve, maintaining version traceability",
+      description: "Automatically updates verification plans as specifications evolve, maintaining version traceability",
       color: "bg-purple-50 text-purple-600"
     },
     {
       icon: <Settings className="h-8 w-8" />,
       title: "Manual Plan Alignment",
-      description: "Aligns existing manual plans to eliminate gaps and ensure consistency while boosting productivity",
+      description: "Automatically aligns existing manual plans to eliminate gaps and ensure consistency while boosting productivity",
       color: "bg-yellow-50 text-yellow-600"
     }
   ];
