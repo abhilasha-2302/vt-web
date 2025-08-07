@@ -225,8 +225,8 @@ export default function SDCVPXPage() {
    // ✅ Define the brochure download function
   const downloadBrochure = () => {
     const link = document.createElement("a");
-    link.href = "/Brochure_VeripointTechnologies.pdf"; // Ensure this file is in your public folder
-    link.download = "Brochure_VeripointTechnologies.pdf";
+    link.href = "/SdCvP‑X™VeripointTechnologiesBrochure.pdf"; // Ensure this file is in your public folder
+    link.download = "SdCvP‑X™VeripointTechnologiesBrochure.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -288,13 +288,13 @@ export default function SDCVPXPage() {
                     <PlayCircle className="h-5 w-5 mr-3" />
                     Request Demo
                   </a>
-                  {/* <button
+                  <button
                     onClick={downloadBrochure}
                     className="border-2 border-green-400 text-green-400 px-8 py-4 rounded-lg font-semibold hover:bg-green-400 hover:text-green-900 transition-colors flex items-center justify-center backdrop-blur-sm"
                   >
                     <Download className="h-5 w-5 mr-3" />
                     Download Brochure
-                  </button> */}
+                  </button>
                 </div>
               </div>
             </div>
