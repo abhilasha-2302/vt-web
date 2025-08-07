@@ -71,9 +71,15 @@ export default function SDCVPXPage() {
     },
     {
       icon: <Target className="h-8 w-8" />,
-      title: "Constraints, Coverage & Assertions",
+      title: "Coverage & Assertions",
       description: "Automatically generates coverage and assertion plan from design specification",
       color: "bg-green-50 text-green-600"
+    },
+    {
+      icon: <Workflow className="h-8 w-8" />,
+      title: "UVM Test Sequence Automation",
+      description: "Automatically generate test sequences and integrate seamlessly with existing IP, ASIC, SoC, and custom interface workflows.",
+      color: "bg-indigo-50 text-indigo-600"
     },
     {
       icon: <Bug className="h-8 w-8" />,
@@ -92,12 +98,6 @@ export default function SDCVPXPage() {
       title: "Manual Plan Alignment",
       description: "Aligns existing manual plans to eliminate gaps and ensure consistency while boosting productivity",
       color: "bg-yellow-50 text-yellow-600"
-    },
-    {
-      icon: <Workflow className="h-8 w-8" />,
-      title: "UVM Test Sequence Automation",
-      description: "Automatically generate test sequences and integrate seamlessly with existing IP, ASIC, SoC, and custom interface workflows.",
-      color: "bg-indigo-50 text-indigo-600"
     }
   ];
 
