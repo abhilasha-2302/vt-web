@@ -84,7 +84,7 @@ export default function SDCVPXPage() {
     {
       icon: <Bug className="h-8 w-8" />,
       title: "Debug Assist Engine",
-      description: "Automatically embeds specification variables and register information for efficient design and efficient root cause analysis directly from the design specification",
+      description: "Automatically embeds specification variables and register information for efficient debug directly from the design specification",
       color: "bg-red-50 text-red-600"
     },
     {
