@@ -150,50 +150,84 @@ export default function SDCVPXPage() {
   ];
 
   const provenIndustries = [
-    {
-      name: "PCIe 6.x IP",
-      time: "~2 Hours",
-      rows: "4000+",
-      industry: "Datacenter & Networking",
-      description: "Complete verification plan with constraints, coverage, and assertions for high speed interfaces"
-    },
-    {
-      name: "CXL 3.x IP",
-      time: "~1 Hour",
-      rows: "2000+",
-      industry: "Memory & Storage",
-      description: "Comprehensive verification framework for next generation memory coherence interfaces"
-    },
-    {
-      name: "ARM Cortex-A Series",
-      time: "~1 Hour",
-      rows: "700+",
-      industry: "Mobile & Embedded",
-      description: "Open source processor verification with comprehensive coverage analysis for ARM architecture"
-    },
-    {
-      name: "Custom RISC SoC",
-      time: "~1 Hour",
-      rows: "800+",
-      industry: "IoT & Edge Computing",
-      description: "Custom SoC verification with comprehensive coverage for RISC-V based system-on-chip designs"
-    },
-    {
-      name: "Custom PIPE Interface",
-      time: "~1 Hour",
-      rows: "1200+",
-      industry: "Datacenter & Networking",
-      description: "Comprehensive verification for Intel PIPE 7.0 interface covering PCIe 6.x, SATA 3.x, USB3.x, USB4.x, and DisplayPort 2.x designs"
-    }
-  ];
+  {
+    name: "PCIe 6.x IP",
+    time: "~2 Hours",
+    rows: "4000+",
+    industry: "Datacenter & Networking",
+    description: "Complete verification plan with constraints, coverage, and assertions for high speed interfaces"
+  },
+  {
+    name: "Ethernet 100G IP",
+    time: "~1.5 Hours",
+    rows: "3500+",
+    industry: "Networking & Telecom",
+    description: "High-speed Ethernet verification with MAC/PHY layer coverage for datacenter and enterprise networking applications"
+  },
+  {
+    name: "CXL 3.x IP",
+    time: "~1 Hour",
+    rows: "2000+",
+    industry: "Memory & Storage",
+    description: "Comprehensive verification framework for next generation memory coherence interfaces"
+  },
+  {
+    name: "DisplayPort 2.x IP",
+    time: "~1 Hour",
+    rows: "2200+",
+    industry: "Display & Graphics",
+    description: "Advanced display interface verification with high bandwidth video transmission and adaptive sync capabilities"
+  },
+  {
+    name: "ARINC 664 Interface",
+    time: "~45 Minutes",
+    rows: "900+",
+    industry: "Aerospace & Avionics",
+    description: "Avionics networking verification for aircraft communication systems with safety-critical compliance requirements"
+  },
+    
+  {
+    name: "PM Bus Controller",
+    time: "~30 Minutes",
+    rows: "600+",
+    industry: "Power Management",
+    description: "Power management bus verification for digital power control and monitoring in server and telecom applications"
+  },
+  {
+    name: "ARM Cortex-A Series",
+    time: "~1 Hour",
+    rows: "700+",
+    industry: "Mobile & Embedded",
+    description: "Open source processor verification with comprehensive coverage analysis for ARM architecture"
+  },
+  {
+    name: "Custom RISC SoC",
+    time: "~1 Hour",
+    rows: "800+",
+    industry: "IoT & Edge Computing",
+    description: "Custom SoC verification with comprehensive coverage for RISC-V based system-on-chip designs"
+  },
+  {
+    name: "Custom PIPE Interface",
+    time: "~1 Hour",
+    rows: "1200+",
+    industry: "Datacenter & Networking",
+    description: "Comprehensive verification for Intel PIPE 7.0 interface covering PCIe 6.x, SATA 3.x, USB3.x, USB4.x, and DisplayPort 2.x designs"
+  }
+];
 
   useEffect(() => {
+    let interval;
     if (!isCarouselPaused) {
-      const interval = setInterval(() => {
+      interval = setInterval(() => {
         setCurrentCarouselIndex((prev) => (prev + 1) % provenIndustries.length);
       }, 1500);
-      return () => clearInterval(interval);
     }
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
   }, [isCarouselPaused, provenIndustries.length]);
 
   const nextSlide = () => {
@@ -335,14 +369,6 @@ export default function SDCVPXPage() {
                 </div>
               ))}
             </div>
-
-            {/* Bottom CTA */}
-            {/* <div className="mt-16 text-center">
-              <div className="inline-flex items-center px-6 py-3 bg-green-600 rounded-lg">
-                <Lightbulb className="h-5 w-5 mr-3 text-yellow-300" />
-                <span className="font-semibold text-white">SdCvP-X™ Solves All These Challenges</span>
-              </div>
-            </div> */}
           </div>
         </section>
 
@@ -390,12 +416,12 @@ export default function SDCVPXPage() {
             </div>
 
             {/* Carousel Container */}
-            <div 
-              className="relative overflow-hidden"
-              onMouseEnter={() => setIsCarouselPaused(true)}
-              onMouseLeave={() => setIsCarouselPaused(false)}
-            >
-              <div className="flex justify-center items-center min-h-[400px] relative">
+            <div className="relative overflow-hidden">
+              <div 
+                className="flex justify-center items-center min-h-[400px] relative"
+                onMouseEnter={() => setIsCarouselPaused(true)}
+                onMouseLeave={() => setIsCarouselPaused(false)}
+              >
                 {/* Navigation Buttons */}
                 <button
                   onClick={prevSlide}
@@ -425,7 +451,7 @@ export default function SDCVPXPage() {
                         key={index}
                         className={`transition-all duration-700 ease-in-out ${
                           isCenter
-                            ? 'scale-110 opacity-100 z-10 transform-none'
+                            ? 'scale-110 opacity-100 z-10'
                             : 'scale-90 opacity-60 z-0'
                         } ${distance > 1 ? 'hidden lg:block' : ''}`}
                         style={{
@@ -601,6 +627,7 @@ export default function SDCVPXPage() {
             </div>
           </div>
         </section>
+
 
 
       {/* Universal Integration Section */}
