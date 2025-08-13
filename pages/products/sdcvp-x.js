@@ -42,21 +42,21 @@ export default function SDCVPXPage() {
 
   const crisisStories = [
     {
-      title: "Planning & Actionable Insights using SdCvP-X",
-      impact: "Comprehensive verification planning directly from specifications using SdCvP-X",
+      title: "Planning & Actionable Insights using SdCvP-X™ ",
+      impact: "Comprehensive verification planning directly from specifications using SdCvP-X™ ",
       description: "Every day of delay burns millions. Manual verification consumes 60–70% of design effort — leaving teams overworked, behind schedule, and missing critical market windows.",
       stat: "40-50%",
       statLabel: "(saving of time in overall planning and execution)"
     },
     {
-      title: "Productivity Boost & Efficiency using SdCvP-X",
+      title: "Productivity Boost & Efficiency using SdCvP-X™",
       impact: "Automation boosts the productivity and efficiency, saving time and costs",
       description: "Your best engineers are stuck writing test plans instead of solving design problems. Missed coverage leads to escaped bugs, costly field failures, and long-term brand damage.",
       stat: "60-70%",
       statLabel: "(boost in design and verification efforts)"
     },
     {
-      title: "Faster and robust chip development rate using SdCvP-X",
+      title: "Faster and robust chip development rate using SdCvP-X™",
       impact: "Thorough verification, faster debugging, executable coverage and sequences for faster chip development and on-time deliveries",
       description: "Verification failures lead to re-spins, missed product launches, and stalled industries. From EVs to smartphones, every post-fab failure adds to the cost. First-time silicon success is rare — but it doesn't have to be.",
       stat: "14% -> 60%",
@@ -66,6 +66,12 @@ export default function SDCVPXPage() {
 
   const keyFeatures = [
     {
+      icon: <Settings className="h-8 w-8" />,
+      title: "Specification Driven Feature Extraction",
+      description: "Automatically extracts design features from specifications, enabling teams to visualise, prioritize requirements, plan execution, and eliminate errors for faster time-to-market",
+      color: "bg-yellow-50 text-yellow-600"
+    },
+    {
       icon: <FileText className="h-8 w-8" />,
       title: "Specification Driven V&V Plan Generator",
       description: "Automatically generates verification (test) plan directly from the design specification",
@@ -73,13 +79,13 @@ export default function SDCVPXPage() {
     },
     {
       icon: <Target className="h-8 w-8" />,
-      title: "Coverage & Assertions",
+      title: "Specification Driven Coverage & Assertions",
       description: "Automatically generates coverage and assertion plan directly from the design specification",
       color: "bg-green-50 text-green-600"
     },
     {
       icon: <Workflow className="h-8 w-8" />,
-      title: "UVM Test Sequence Automation",
+      title: "Specification Driven UVM Test Sequence Automation",
       description: "Automatically generates UVM test sequences directly from the design specification",
       color: "bg-indigo-50 text-indigo-600"
     },
@@ -91,15 +97,9 @@ export default function SDCVPXPage() {
     },
     {
       icon: <Activity className="h-8 w-8" />,
-      title: "Specification Evolution",
-      description: "Automatically updates verification plans as specifications evolve, maintaining version traceability",
+      title: "Specification Evolution & Manual Plan Alignment",
+      description: "Automatically updates verification plans as specifications evolve, aligns existing manual plans to close gaps, maintain version traceability, and ensure consistency while boosting productivity",
       color: "bg-purple-50 text-purple-600"
-    },
-    {
-      icon: <Settings className="h-8 w-8" />,
-      title: "Manual Plan Alignment",
-      description: "Automatically aligns existing manual plans to eliminate gaps and ensure consistency while boosting productivity",
-      color: "bg-yellow-50 text-yellow-600"
     }
   ];
 
@@ -153,64 +153,64 @@ export default function SDCVPXPage() {
   {
     name: "PCIe 6.x IP",
     time: "~2 Hours",
-    rows: "4000+",
-    industry: "Datacenter & Networking",
+    scenarios: "4k+",
+    industry: "Datacenter & Storage",
     description: "Complete verification plan with constraints, coverage, and assertions for high speed interfaces"
   },
   {
-    name: "Ethernet 100G IP",
-    time: "~1.5 Hours",
-    rows: "3500+",
-    industry: "Networking & Telecom",
-    description: "High-speed Ethernet verification with MAC/PHY layer coverage for datacenter and enterprise networking applications"
+    name: "Ethernet IEEE 802.3 2022",
+    time: "~6 Hours",
+    scenarios: "16k+",
+    industry: "Datacenter & Automotive",
+    description: "High-speed verification with Serial, MAC & PHY coverage for various designs and applications"
   },
   {
     name: "CXL 3.x IP",
     time: "~1 Hour",
-    rows: "2000+",
-    industry: "Memory & Storage",
+    scenarios: "2k+",
+    industry: "Datacenter & Storage",
     description: "Comprehensive verification framework for next generation memory coherence interfaces"
   },
   {
     name: "DisplayPort 2.x IP",
     time: "~1 Hour",
-    rows: "2200+",
+    scenarios: "2.2k+",
     industry: "Display & Graphics",
     description: "Advanced display interface verification with high bandwidth video transmission and adaptive sync capabilities"
   },
   {
-    name: "ARINC 664 Interface",
+    name: "ARINC 664 IP",
     time: "~45 Minutes",
-    rows: "900+",
-    industry: "Aerospace & Avionics",
+    scenarios: "900+",
+    industry: "Aviation",
     description: "Avionics networking verification for aircraft communication systems with safety-critical compliance requirements"
   },
     
   {
-    name: "PM Bus Controller",
+    name: "Analog PMBus™ System",
     time: "~30 Minutes",
-    rows: "600+",
+    scenarios: "600+",
     industry: "Power Management",
-    description: "Power management bus verification for digital power control and monitoring in server and telecom applications"
+    description: "Automotive analog power system using the PMBus™ interface for precise control, monitoring, and optimization"
   },
   {
     name: "ARM Cortex-A Series",
     time: "~1 Hour",
-    rows: "700+",
+    scenarios: "700k+",
     industry: "Mobile & Embedded",
     description: "Open source processor verification with comprehensive coverage analysis for ARM architecture"
   },
   {
     name: "Custom RISC SoC",
     time: "~1 Hour",
-    rows: "800+",
+    scenarios: "800+",
     industry: "IoT & Edge Computing",
     description: "Custom SoC verification with comprehensive coverage for RISC-V based system-on-chip designs"
   },
   {
     name: "Custom PIPE Interface",
     time: "~1 Hour",
-    rows: "1200+",
+    scenarios: "1.2k+",
     industry: "Datacenter & Networking",
     description: "Comprehensive verification for Intel PIPE 7.0 interface covering PCIe 6.x, SATA 3.x, USB3.x, USB4.x, and DisplayPort 2.x designs"
   }
@@ -352,7 +352,7 @@ export default function SDCVPXPage() {
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold mb-6 text-gray-900">Verification was #1 Bottleneck</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Automated Verification using SdCvP-X leads to robust and faster chip development.
+                Automated Verification using SdCvP-X™ leads to robust and faster chip development.
               </p>
             </div>
 
@@ -482,7 +482,7 @@ export default function SDCVPXPage() {
                               <span className="text-gray-600">Verification Plan:</span>
                               <span className={`font-semibold ${
                                 isCenter ? 'text-blue-600' : 'text-gray-500'
-                              } transition-colors duration-700`}>{item.rows} Rows</span>
+                              } transition-colors duration-700`}>{item.scenarios} Scenarios</span>
                             </div>
                             <div className="flex justify-between">
                               <span className="text-gray-600">Industry:</span>
