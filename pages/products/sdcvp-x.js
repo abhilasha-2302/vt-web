@@ -73,8 +73,8 @@ export default function SDCVPXPage() {
     },
     {
       icon: <FileText className="h-8 w-8" />,
-      title: "Specification Driven V&V Plan Generator",
-      description: "Automatically generates verification (test) plan directly from the design specification",
+      title: "Specification Driven Verification & Validation Plan",
+      description: "Automatically generates verification (test) plan directly from the design specifications in various formats including IPXACT XML",
       color: "bg-blue-50 text-blue-600"
     },
     {
@@ -85,8 +85,8 @@ export default function SDCVPXPage() {
     },
     {
       icon: <Workflow className="h-8 w-8" />,
-      title: "Specification Driven UVM Test Sequence Automation",
-      description: "Automatically generates UVM test sequences directly from the design specification",
+      title: "Specification Driven UVM Test Sequences and System Verilog Assertions",
+      description: "Automatically generates UVM test sequences and System Verilog assertions directly from the design specification including custom formats per test sequences",
       color: "bg-indigo-50 text-indigo-600"
     },
     {
@@ -138,14 +138,14 @@ export default function SDCVPXPage() {
       description: "Scales from IP to full SoC comprehensive verification"
     },
     {
-      category: "ASIC Verification",
+      category: "Subsystem Verification",
       tools: ["VCS", "Verdi", "Xcelium", "Questa", "Riviera", "Vivado", "Quartus"],
-      description: "Scales from IP to full ASIC comprehensive verification"
+      description: "Seamlessly integrates in existing workflows for thorough Subsystem verification"
     },
     {
-      category: "FPGA Verification",
+      category: "Analog Verification",
       tools: ["VCS", "Verdi", "Xcelium", "Questa", "Riviera", "Vivado", "Quartus"],
-      description: "Accelerates FPGA verification with vendor-specific optimizations"
+      description: "Accelerates Analog IP's & system verification with vendor-specific optimizations"
     }
   ];
 
@@ -263,8 +263,8 @@ export default function SDCVPXPage() {
       features: [
         "All Advanced Features",
         "Coverage Plan",
-        "Spec Variables, Debug Info & Traceability",
-        "Auto-Generated Test Bench",
+        "Auto-Generated UVM Test Sequences and System Verilog Assertions",
+        "Spec Variables, Register Variables, Debug Info & Traceability",
         "Priority Support & Success Manager"
       ],
       highlight: true
