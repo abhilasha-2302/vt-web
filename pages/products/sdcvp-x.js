@@ -74,7 +74,7 @@ export default function SDCVPXPage() {
     {
       icon: <FileText className="h-8 w-8" />,
       title: "Specification Driven Verification & Validation Plan",
-      description: "Automatically generates verification (test) plan directly from the design specifications in various formats including IPXACT XML",
+      description: "Automatically generates verification (test) plan directly from the design specifications in various formats including IP-XACT",
       color: "bg-blue-50 text-blue-600"
     },
     {
