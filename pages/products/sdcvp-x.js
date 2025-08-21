@@ -86,7 +86,7 @@ export default function SDCVPXPage() {
     {
       icon: <Workflow className="h-8 w-8" />,
       title: "Specification Driven UVM - Sequence, Driver, Test and SystemVerilog Assertions",
-      description: "Automatically generates UVM - Sequence, Driver, Test and SystemVerilog Assertions directly from the design specification including custom formats per test sequences",
+      description: "Automatically generates UVM - Sequence, Driver, Test and SystemVerilog Assertions directly from the design specification including custom formats per test scenario",
       color: "bg-indigo-50 text-indigo-600"
     },
     {
