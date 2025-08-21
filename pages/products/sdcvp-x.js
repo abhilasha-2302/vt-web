@@ -263,7 +263,7 @@ export default function SDCVPXPage() {
       features: [
         "All Advanced Features",
         "Coverage Plan",
-        "Auto-Generated UVM Test Sequences and System Verilog Assertions",
+        "Auto-Generated UVM - Sequence, Driver, Test and SystemVerilog Assertions",
         "Spec Variables, Register Variables, Debug Info & Traceability",
         "Priority Support & Success Manager"
       ],
