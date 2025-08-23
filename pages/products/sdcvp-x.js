@@ -274,8 +274,8 @@ export default function SDCVPXPage() {
   // Define the brochure download function
   const downloadBrochure = () => {
     const link = document.createElement("a");
-    link.href = "/SdCvP‑X™VeripointTechnologiesBrochure.pdf"; // Ensure this file is in your public folder
-    link.download = "SdCvP‑X™VeripointTechnologiesBrochure.pdf";
+    link.href = "/SdCvP‑X™️VeripointTechnologiesBrochure.pdf"; // Ensure this file is in your public folder
+    link.download = "SdCvP‑X™️VeripointTechnologiesBrochure.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
