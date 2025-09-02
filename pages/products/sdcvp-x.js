@@ -85,8 +85,8 @@ export default function SDCVPXPage() {
     },
     {
       icon: <Workflow className="h-8 w-8" />,
-      title: "Specification Driven UVM - Sequence, Driver, Test and SystemVerilog Assertions",
-      description: "Automatically generates UVM - Sequence, Driver, Test and SystemVerilog Assertions directly from the design specification including custom formats per test scenario",
+      title: "Specification Driven UVM Test Bench and SystemVerilog Assertions",
+      description: "Automatically generates UVM Test Bench and SystemVerilog Assertions directly from the design specification including custom formats per test scenario",
       color: "bg-indigo-50 text-indigo-600"
     },
     {
@@ -263,7 +263,7 @@ export default function SDCVPXPage() {
       features: [
         "All Advanced Features",
         "Coverage Plan",
-        "Auto-Generated UVM - Sequence, Driver, Test and SystemVerilog Assertions",
+        "Auto-Generated UVM Test Bench and SystemVerilog Assertions",
         "Spec Variables, Register Variables, Debug Info & Traceability",
         "Priority Support & Success Manager"
       ],
