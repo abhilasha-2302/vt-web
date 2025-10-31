@@ -22,7 +22,7 @@ export default function OfficeLocations() {
       mapUrl: "https://g.co/kgs/HWqEdXs",
       type: "Design Center",
       description:
-        "Our flagship R&D facility is located in the Urbtech Trade Centre, Noida.solutions.",
+        "Our flagship R&D facility is located in the Urbtech Trade Centre, Noida.",
     },
   ];
 
