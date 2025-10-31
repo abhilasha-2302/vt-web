@@ -19,7 +19,7 @@ export default function OfficeLocations() {
       name: "Urbtech Trade Center, Noida",
       address:
         "Unit no. IS-800, Ground Floor, Tower-C, Urbtech Trade Center, Plot No. B-35, Sector-132, Noida 201304, Uttar Pradesh, India",
-      mapUrl: "https://share.google/DHio4ApMKCJJs1xaf",
+      mapUrl: "https://maps.app.goo.gl/4bGLWvqjx7mE1YrZ9",
       type: "Design Center",
       description:
         "Our flagship R&D facility is located in the Urbtech Trade Centre, Noida.",
