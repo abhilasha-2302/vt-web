@@ -19,7 +19,7 @@ export default function OfficeLocations() {
       name: "Urbtech Trade Center, Noida",
       address:
         "Unit no. IS-800, Ground Floor, Tower-C, Urbtech Trade Center, Plot No. B-35, Sector-132, Noida 201304, Uttar Pradesh, India",
-      mapUrl: "https://www.google.com/maps/search/veripoint+technologies/@28.5153977,77.3738343,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MTAyOC4wIKXMDSoASAFQAw%3D%3D",
+      mapUrl: "https://share.google/DHio4ApMKCJJs1xaf",
       type: "Design Center",
       description:
         "Our flagship R&D facility is located in the Urbtech Trade Centre, Noida.",
