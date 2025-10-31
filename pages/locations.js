@@ -4,25 +4,25 @@ import { MapPin, ExternalLink, Phone, Mail } from "lucide-react";
 
 export default function OfficeLocations() {
   const locations = [
+    // {
+    //   id: 1,
+    //   name: "World Trade Tower, Noida",
+    //   address:
+    //     "Tower B, Unit 304, M Floor, World Trade Tower, Plot no. C-1, Sector-16, Noida 201301, Uttar Pradesh, India",
+    //   mapUrl: "https://g.co/kgs/Zi7LsxD",
+    //   type: "Branch Office",
+    //   description:
+    //     "Our flagship R&D and legal facility is located in the prestigious World Trade Tower, Noida.",
+    // },
     {
       id: 1,
-      name: "World Trade Tower, Noida",
-      address:
-        "Tower B, Unit 304, M Floor, World Trade Tower, Plot no. C-1, Sector-16, Noida 201301, Uttar Pradesh, India",
-      mapUrl: "https://g.co/kgs/Zi7LsxD",
-      type: "Branch Office",
-      description:
-        "Our flagship R&D and legal facility is located in the prestigious World Trade Tower, Noida.",
-    },
-    {
-      id: 2,
       name: "Urbtech Trade Center, Noida",
       address:
         "Unit no. IS-800, Ground Floor, Tower-C, Urbtech Trade Center, Plot No. B-35, Sector-132, Noida 201304, Uttar Pradesh, India",
       mapUrl: "https://g.co/kgs/HWqEdXs",
-      type: "Opening Soon",
+      type: "Design Center",
       description:
-        "Our upcoming R&D and operational headquarters that will further strengthen our capabilities in semiconductor and AI solutions.",
+        "Our flagship R&D facility is located in the Urbtech Trade Centre, Noida.solutions.",
     },
   ];
 
