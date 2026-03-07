@@ -281,13 +281,14 @@ export default function SDCVPXPage() {
   //   document.body.removeChild(link);
   // };
  const downloadBrochure = () => {
-    const link = document.createElement("a");
-    link.href = "/abc.rpm"; // Ensure this file is in your public folder
-    link.download = "abc.rpm";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  const link = document.createElement("a");
+  link.href =
+    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/abc.rpm";
+  link.download = "abc.rpm";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
   return (
     <Layout>
       <Head>
