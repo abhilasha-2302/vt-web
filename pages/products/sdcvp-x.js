@@ -280,15 +280,15 @@ export default function SDCVPXPage() {
   //   link.click();
   //   document.body.removeChild(link);
   // };
- const downloadBrochure = () => {
-  const link = document.createElement("a");
-  link.href =
-    "https://github.com/abhilasha-2302/vt-web/releases/downloads/v1.0/abc.pdf";
-  link.download = "abc.pdf";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
+//  const downloadBrochure = () => {
+//   const link = document.createElement("a");
+//   link.href =
+//     "https://github.com/abhilasha-2302/vt-web/releases/downloads/v1.0/abc.pdf";
+//   link.download = "abc.pdf";
+//   document.body.appendChild(link);
+//   link.click();
+//   document.body.removeChild(link);
+// };
   return (
     <Layout>
       <Head>
@@ -340,13 +340,13 @@ export default function SDCVPXPage() {
                       <PlayCircle className="h-5 w-5 mr-3" />
                       Request Demo
                     </a>
-                    <button
+                    {/* <button
                       onClick={downloadBrochure}
                       className="border-2 border-green-400 text-green-400 px-8 py-4 rounded-lg font-semibold hover:bg-green-400 hover:text-green-900 transition-colors flex items-center justify-center backdrop-blur-sm"
                     >
                       <Download className="h-5 w-5 mr-3" />
                       Download Brochure
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
@@ -703,13 +703,13 @@ export default function SDCVPXPage() {
               <PlayCircle className="h-5 w-5 mr-3" />
               Request Demo
             </a>
-            <button
+            {/* <button
               onClick={downloadBrochure}
               className="border-2 border-white text-white px-12 py-4 rounded-lg font-semibold hover:bg-white hover:text-green-600 transition-colors flex items-center justify-center"
             >
               <Download className="h-5 w-5 mr-3" />
               Download Brochure
-            </button>
+            </button> */}
           </div>
         </div>
       </section>
