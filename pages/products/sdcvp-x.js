@@ -280,15 +280,15 @@ export default function SDCVPXPage() {
   //   link.click();
   //   document.body.removeChild(link);
   // };
-//  const downloadBrochure = () => {
-//   const link = document.createElement("a");
-//   link.href =
-//     "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/abc.rpm";
-//   link.download = "abc.rpm";
-//   document.body.appendChild(link);
-//   link.click();
-//   document.body.removeChild(link);
-// };
+ const downloadBrochure = () => {
+  const link = document.createElement("a");
+  link.href =
+    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/abc.rpm";
+  link.download = "abc.rpm";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
   return (
     <Layout>
       <Head>
@@ -340,13 +340,13 @@ export default function SDCVPXPage() {
                       <PlayCircle className="h-5 w-5 mr-3" />
                       Request Demo
                     </a>
-                    {/* <button
+                    <button
                       onClick={downloadBrochure}
                       className="border-2 border-green-400 text-green-400 px-8 py-4 rounded-lg font-semibold hover:bg-green-400 hover:text-green-900 transition-colors flex items-center justify-center backdrop-blur-sm"
                     >
                       <Download className="h-5 w-5 mr-3" />
                       Download Brochure
-                    </button> */}
+                    </button>
                   </div>
                 </div>
               </div>
@@ -414,13 +414,13 @@ export default function SDCVPXPage() {
                 AI-Driven Verification for standard (eval version) and custom digital & analog designs
               </p>
               
-              {/* <button
+              <button
                 onClick={downloadBrochure}
                 className="inline-flex items-center px-8 py-4 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors"
               >
                 <FileText className="h-5 w-5 mr-3" />
                 Download Technical Brochure
-              </button> */}
+              </button>
             </div>
 
             {/* Carousel Container */}
@@ -703,13 +703,13 @@ export default function SDCVPXPage() {
               <PlayCircle className="h-5 w-5 mr-3" />
               Request Demo
             </a>
-            {/* <button
+            <button
               onClick={downloadBrochure}
               className="border-2 border-white text-white px-12 py-4 rounded-lg font-semibold hover:bg-white hover:text-green-600 transition-colors flex items-center justify-center"
             >
               <Download className="h-5 w-5 mr-3" />
               Download Brochure
-            </button> */}
+            </button>
           </div>
         </div>
       </section>
