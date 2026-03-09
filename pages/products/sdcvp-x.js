@@ -272,23 +272,23 @@ export default function SDCVPXPage() {
   ];
 
   // Define the brochure download function
-  const downloadBrochure = () => {
-    const link = document.createElement("a");
-    link.href = "/sdcvp-x.pdf"; // Ensure this file is in your public folder
-    link.download = "sdcvp-x.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-//  const downloadBrochure = () => {
-//   const link = document.createElement("a");
-//   link.href =
-//     "https://github.com/abhilasha-2302/vt-web/releases/download/v0.1/tool.rpm";
-//   link.download = "abc.rpm";
-//   document.body.appendChild(link);
-//   link.click();
-//   document.body.removeChild(link);
-// };
+  // const downloadBrochure = () => {
+  //   const link = document.createElement("a");
+  //   link.href = "/sdcvp-x.pdf"; // Ensure this file is in your public folder
+  //   link.download = "sdcvp-x.pdf";
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   document.body.removeChild(link);
+  // };
+ const downloadBrochure = () => {
+  const link = document.createElement("a");
+  link.href =
+    "https://github.com/abhilasha-2302/vt-web/releases/download/v0.1/sdcvp-x.pdf";
+  link.download = "sdcvp-x.pdf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
   return (
     <Layout>
       <Head>
