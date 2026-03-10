@@ -283,7 +283,7 @@ export default function SDCVPXPage() {
  const downloadBrochure = () => {
   const link = document.createElement("a");
   link.href =
-    "https://github.com/abhilasha-2302/vt-web/releases/downloads/v1.0/abc.pdf";
+    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/abc.pdf";
   link.download = "abc.pdf";
   document.body.appendChild(link);
   link.click();
