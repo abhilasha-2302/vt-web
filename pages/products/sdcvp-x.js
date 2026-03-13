@@ -284,6 +284,8 @@ export default function SDCVPXPage() {
   const link = document.createElement("a");
   link.href =
     "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/tool.rpm";
+    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/feature_extraction.py";
+    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/deafult.env";
   link.download = "tool.rpm";
   document.body.appendChild(link);
   link.click();
