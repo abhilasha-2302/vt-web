@@ -291,22 +291,25 @@ export default function SDCVPXPage() {
 //   link.click();
 //   document.body.removeChild(link);
 // };
-const downloadBrochure = () => {
-  const files = [
-    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/feature_extraction.py",
-    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/default.env"
-  ];
+const downloadFile = (url) => {
+  const link = document.createElement("a");
+  link.href = url;
+  link.setAttribute("download", "");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 
-  files.forEach((url, index) => {
-    setTimeout(() => {
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = "";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }, index * 500); // delay each download
-  });
+const downloadBrochure = () => {
+  downloadFile(
+    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/feature_extraction.py"
+  );
+
+  setTimeout(() => {
+    downloadFile(
+      "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/default.env"
+    );
+  }, 1000); // 1 second delay
 };
   return (
     <Layout>
