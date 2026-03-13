@@ -301,15 +301,14 @@ const downloadFile = (url) => {
 };
 
 const downloadBrochure = () => {
-  downloadFile(
-    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/feature_extraction.py"
-  );
+  const files = [
+    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/feature_extraction.py",
+    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/default.env"
+  ];
 
-  setTimeout(() => {
-    downloadFile(
-      "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/default.env"
-    );
-  }, 1000); // 1 second delay
+  files.forEach((file) => {
+    window.open(file);
+  });
 };
   return (
     <Layout>
