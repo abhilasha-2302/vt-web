@@ -280,36 +280,34 @@ export default function SDCVPXPage() {
   //   link.click();
   //   document.body.removeChild(link);
   // };
-//  const downloadBrochure = () => {
-//   const link = document.createElement("a");
-//   link.href =
-//     // "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/tool.rpm";
-//     "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/feature_extraction.py";
-//     "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/deafult.env";
-//   link.download = "tool.rpm";
-//   document.body.appendChild(link);
-//   link.click();
-//   document.body.removeChild(link);
-// };
-const downloadFile = (url) => {
+ const downloadBrochure = () => {
   const link = document.createElement("a");
-  link.href = url;
-  link.setAttribute("download", "");
+  link.href =
+    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/abc.zip";
+  link.download = "tool.rpm";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 };
+// const downloadFile = (url) => {
+//   const link = document.createElement("a");
+//   link.href = url;
+//   link.setAttribute("download", "");
+//   document.body.appendChild(link);
+//   link.click();
+//   document.body.removeChild(link);
+// };
 
-const downloadBrochure = () => {
-  const files = [
-    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/feature_extraction.py",
-    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/default.env"
-  ];
+// const downloadBrochure = () => {
+//   const files = [
+//     "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/feature_extraction.py",
+//     "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/default.env"
+//   ];
 
-  files.forEach((file) => {
-    window.open(file);
-  });
-};
+//   files.forEach((file) => {
+//     window.open(file);
+//   });
+// };
   return (
     <Layout>
       <Head>
