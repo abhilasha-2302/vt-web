@@ -13,9 +13,9 @@ export default function EnergyUtilitiesPage() {
       features: [
         'Outage Prediction – Anticipate failures before they happen using transformer health analytics.',
         'Surge Protection – Auto-isolate voltage spikes in <2ms to protect infrastructure.',
-'Insulation Fault Detection – Pinpoint degradation in cables/substations with 99.2% accuracy.',
-'Demand Forecasting – AI models adjust to weather, events, and usage patterns in real-time.',
-'Load Balancing Automation – Dynamically reroute power to prevent overloads.'
+        'Insulation Fault Detection – Pinpoint degradation in cables/substations with 99.2% accuracy.',
+        'Demand Forecasting – AI models adjust to weather, events, and usage patterns in real-time.',
+        'Load Balancing Automation – Dynamically reroute power to prevent overloads.'
       ]
     },
     {
@@ -116,7 +116,165 @@ export default function EnergyUtilitiesPage() {
         'Regulatory reporting',
         'Environmental monitoring'
       ]
+    },
+
+    {
+      name: 'Energy Foundation Model',
+      slug: 'energy-foundation-model',
+      description: 'A domain-specific AI foundation model trained on grid telemetry, SCADA logs, regulatory documents, and equipment manuals. Powers all energy intelligence products with a shared, defensible AI layer purpose-built for the power sector.',
+      icon: '🧠',
+      features: [
+        'SCADA & telemetry pre-training on energy-specific datasets',
+        'Regulatory document understanding & auto-interpretation',
+        'Equipment manual Q&A and fault diagnosis via natural language',
+        'Shared intelligence layer across all product lines',
+        'Fine-tunable for utility-specific grid topologies'
+      ]
+    },
+    {
+      name: 'Grid Digital Twin',
+      slug: 'grid-digital-twin',
+      description: 'A physics-informed AI simulation of your entire grid infrastructure. Model failure cascades, infrastructure upgrades, and climate scenarios in real-time—empowering planners to make confident 10–30 year capital decisions without real-world risk.',
+      icon: '🪞',
+      features: [
+        'Real-time physics-informed grid simulation',
+        'Failure cascade & blackout scenario modeling',
+        'Capital investment ROI simulation',
+        'Climate & extreme weather stress testing',
+        'What-if analysis for grid topology changes'
+      ]
+    },
+    {
+      name: 'DER & Virtual Power Plant Orchestration',
+      slug: 'der-orchestration',
+      description: 'Aggregate and coordinate thousands of distributed energy resources—rooftop solar, home batteries, and EV chargers—into unified virtual power plants. AI-driven orchestration gives utilities back control of the grid edge.',
+      icon: '🏘️',
+      features: [
+        'Prosumer aggregation into virtual power plants',
+        'Real-time DER dispatch and curtailment',
+        'Rooftop solar & home battery coordination',
+        'Grid edge load balancing at scale',
+        'Two-way energy flow management'
+      ]
+    },
+    {
+      name: 'Vehicle-to-Grid (V2G) Intelligence',
+      slug: 'v2g-intelligence',
+      description: 'Transform EV fleets into mobile grid assets. Our AI negotiates bidirectional charging in real time—drawing energy from vehicles during peak demand and pushing power back during off-peak hours—unlocking a massive untapped flexibility resource.',
+      icon: '🚗',
+      features: [
+        'Bidirectional EV charging coordination',
+        'Fleet-level peak shaving & demand response',
+        'Real-time grid signal integration',
+        'Driver preference & battery health preservation',
+        'Revenue sharing model for EV owners'
+      ]
+    },
+    {
+      name: 'Edge AI for Substation Autonomy',
+      slug: 'edge-ai-substation',
+      description: 'Deploy inference directly at the substation for sub-millisecond autonomous decisions—without cloud latency. Enables self-healing switching, protection relay optimization, and real-time fault isolation at the grid edge.',
+      icon: '🏭',
+      features: [
+        'On-device inference with <1ms response time',
+        'Autonomous fault isolation & self-healing switching',
+        'Protection relay AI optimization',
+        'Offline-resilient edge deployment',
+        'Federated learning across substation fleet'
+      ]
+    },
+    {
+      name: 'Climate Resilience & Wildfire Risk AI',
+      slug: 'climate-resilience',
+      description: 'Fuse satellite imagery, weather forecasts, vegetation data, and grid topology to predict wildfire ignition risk, flood exposure, and storm damage zones—helping utilities proactively de-energize high-risk lines before disaster strikes.',
+      icon: '🔥',
+      features: [
+        'Wildfire ignition risk scoring per line segment',
+        'Satellite & vegetation data fusion',
+        'Storm and flood impact zone prediction',
+        'Proactive de-energization recommendations',
+        'Climate scenario planning for asset hardening'
+      ]
+    },
+    {
+      name: 'Grid Hardening Advisor',
+      slug: 'grid-hardening',
+      description: 'AI-driven investment prioritization for infrastructure resilience. Analyzes historical outage data, climate projections, and asset age to recommend exactly where to harden the grid—ranked by risk reduction and ROI.',
+      icon: '🛡️',
+      features: [
+        'Outage history & asset age risk scoring',
+        'Climate projection integration',
+        'Undergrounding & storm-proofing ROI analysis',
+        'Capital expenditure prioritization engine',
+        'Regulator-ready resilience reporting'
+      ]
+    },
+    {
+      name: 'AI Demand Response Orchestration',
+      slug: 'demand-response',
+      description: 'Actively negotiate with industrial and commercial consumers in real time to shed or shift load during grid stress events. Behavioral AI combined with automated incentive contracting turns large consumers into a programmable flexibility resource.',
+      icon: '🤝',
+      features: [
+        'Real-time load shedding negotiation',
+        'Behavioral AI for consumer response modeling',
+        'Automated dynamic incentive contracting',
+        'Industrial & commercial consumer segmentation',
+        'Grid stress event auto-triggering'
+      ]
+    },
+    {
+      name: 'Carbon Intelligence Platform',
+      slug: 'carbon-intelligence',
+      description: 'Track real-time grid carbon intensity, optimize dispatch to minimize emissions, and generate automated Scope 2 reports for enterprise clients. Algorithmic carbon credit trading ensures utilities and corporates meet ESG targets efficiently.',
+      icon: '🌿',
+      features: [
+        'Real-time grid carbon intensity tracking',
+        'Emissions-aware dispatch optimization',
+        'Automated Scope 2 ESG reporting',
+        'Algorithmic carbon credit trading',
+        'Corporate energy procurement advisory'
+      ]
+    },
+    {
+      name: 'Autonomous Energy Market Bidding',
+      slug: 'autonomous-market-bidding',
+      description: 'Fully agentic AI that participates in day-ahead and real-time energy markets autonomously—bidding, hedging, and arbitraging across major ISOs. Goes beyond analytics to execute trading strategies with speed and precision no human desk can match.',
+      icon: '🤖',
+      features: [
+        'Autonomous day-ahead & real-time market bidding',
+        'Cross-ISO arbitrage (PJM, ERCOT, CAISO, etc.)',
+        'Dynamic hedging strategy execution',
+        'Risk exposure monitoring & circuit breakers',
+        'Backtesting & strategy simulation engine'
+      ]
+    },
+    {
+      name: 'Quantum-Hybrid Grid Optimization',
+      slug: 'quantum-grid-optimization',
+      description: 'Harness quantum-classical hybrid solvers to crack NP-hard optimal power flow problems at a scale and speed classical computing cannot match. Purpose-built for large transmission networks where marginal efficiency gains translate to millions in savings.',
+      icon: '⚛️',
+      features: [
+        'Quantum-assisted optimal power flow (OPF)',
+        'Hybrid classical-quantum solver architecture',
+        'Large-scale transmission network optimization',
+        'Integration with D-Wave & IBM Quantum backends',
+        'Benchmarking vs. classical solver baselines'
+      ]
+    },
+    {
+      name: 'Grid Operations AI Co-pilot',
+      slug: 'grid-ops-copilot',
+      description: 'A generative AI assistant for grid operators—answers real-time questions from SCADA data, drafts incident reports, generates maintenance SOPs, and assists with regulatory filings. Reduces operator cognitive load and accelerates decision-making during critical events.',
+      icon: '🧑‍✈️',
+      features: [
+        'Natural language SCADA data querying',
+        'Automated incident report generation',
+        'Maintenance SOP drafting & versioning',
+        'Regulatory filing assistance',
+        'Alert summarization & operator briefings'
+      ]
     }
+  
   ];
 
   return (
