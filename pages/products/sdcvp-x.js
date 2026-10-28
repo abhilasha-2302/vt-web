@@ -283,8 +283,8 @@ export default function SDCVPXPage() {
  const downloadBrochure = () => {
   const link = document.createElement("a");
   link.href =
-    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/requirements.txt";
-  link.download = "requirements.txt";
+    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/README_UVM.pdf";
+  link.download = "README_UVM.pdf";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
