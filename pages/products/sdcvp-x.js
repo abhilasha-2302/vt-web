@@ -273,6 +273,8 @@ export default function SDCVPXPage() {
 
   const packageDownloadUrl =
     "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/SdCvP-X._Package.pkg";
+  const verificationPlanDownloadUrl =
+    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/NIC_IP_Verification_Plan.7z";
 
   const downloadBrochure = () => {
     const link = document.createElement("a");
@@ -426,13 +428,22 @@ export default function SDCVPXPage() {
                 AI-Driven Verification for standard (eval version) and custom digital & analog designs
               </p>
               
-              <button
-                onClick={downloadBrochure}
-                className="inline-flex items-center px-8 py-4 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors"
-              >
-                <FileText className="h-5 w-5 mr-3" />
-                Download Technical Brochure
-              </button>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button
+                  onClick={downloadBrochure}
+                  className="inline-flex items-center px-8 py-4 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors"
+                >
+                  <FileText className="h-5 w-5 mr-3" />
+                  Download Technical Brochure
+                </button>
+                <a
+                  href={verificationPlanDownloadUrl}
+                  className="inline-flex items-center px-8 py-4 border-2 border-green-600 text-green-700 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors"
+                >
+                  <Download className="h-5 w-5 mr-3" />
+                  Download NIC IP Verification Plan
+                </a>
+              </div>
             </div>
 
             {/* Carousel Container */}
