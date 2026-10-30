@@ -276,6 +276,16 @@ export default function SDCVPXPage() {
   const verificationPlanDownloadUrl =
     "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/NIC_IP_Verification_Plan.7z";
 
+  const downloadAllReleaseFiles = () => {
+    [packageDownloadUrl, verificationPlanDownloadUrl].forEach((url) => {
+      const link = document.createElement("a");
+      link.href = url;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  };
+
   const downloadBrochure = () => {
     const link = document.createElement("a");
     link.href = "/sdcvp-x.pdf";
@@ -354,13 +364,13 @@ export default function SDCVPXPage() {
                       <PlayCircle className="h-5 w-5 mr-3" />
                       Request Demo
                     </a>
-                    <a
-                      href={packageDownloadUrl}
+                    <button
+                      onClick={downloadAllReleaseFiles}
                       className="border-2 border-green-400 text-green-400 px-8 py-4 rounded-lg font-semibold hover:bg-green-400 hover:text-green-900 transition-colors flex items-center justify-center backdrop-blur-sm"
                     >
                       <Download className="h-5 w-5 mr-3" />
-                      Download SdCvP-X for macOS
-                    </a>
+                      Download Package &amp; Verification Plan
+                    </button>
                   </div>
                 </div>
               </div>
@@ -726,13 +736,13 @@ export default function SDCVPXPage() {
               <PlayCircle className="h-5 w-5 mr-3" />
               Request Demo
             </a>
-            <a
-              href={packageDownloadUrl}
+            <button
+              onClick={downloadAllReleaseFiles}
               className="border-2 border-white text-white px-12 py-4 rounded-lg font-semibold hover:bg-white hover:text-green-600 transition-colors flex items-center justify-center"
             >
               <Download className="h-5 w-5 mr-3" />
-              Download SdCvP-X for macOS
-            </a>
+              Download Package &amp; Verification Plan
+            </button>
           </div>
         </div>
       </section>
