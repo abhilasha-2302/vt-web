@@ -271,30 +271,17 @@ export default function SDCVPXPage() {
     }
   ];
 
-  // Define the brochure download function
-  // const downloadBrochure = () => {
-  //   const link = document.createElement("a");
-  //   link.href = "/sdcvp-x.pdf"; // Ensure this file is in your public folder
-  //   link.download = "sdcvp-x.pdf";
-  //   document.body.appendChild(link);
-  //   link.click();
-  //   document.body.removeChild(link);
-  // };
- const RELEASE_BASE =
-  "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0";
+  const packageDownloadUrl =
+    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/SdCvP-X._Package.pkg";
 
-const downloadFile = (fileName) => {
-  const link = document.createElement("a");
-  link.href = `${RELEASE_BASE}/${fileName}`;
-  link.download = fileName;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
-
-const downloadPackage = () => downloadFile("SdCvP-X_Package.7z");
-const downloadVerificationPlan = () =>
-  downloadFile("NIC_IP_Verification_Plan.7z");
+  const downloadBrochure = () => {
+    const link = document.createElement("a");
+    link.href = "/sdcvp-x.pdf";
+    link.download = "sdcvp-x.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 // const downloadFile = (url) => {
 //   const link = document.createElement("a");
 //   link.href = url;
@@ -365,13 +352,13 @@ const downloadVerificationPlan = () =>
                       <PlayCircle className="h-5 w-5 mr-3" />
                       Request Demo
                     </a>
-                    <button
-                      onClick={downloadBrochure}
+                    <a
+                      href={packageDownloadUrl}
                       className="border-2 border-green-400 text-green-400 px-8 py-4 rounded-lg font-semibold hover:bg-green-400 hover:text-green-900 transition-colors flex items-center justify-center backdrop-blur-sm"
                     >
                       <Download className="h-5 w-5 mr-3" />
-                      Download Brochure
-                    </button>
+                      Download SdCvP-X for macOS
+                    </a>
                   </div>
                 </div>
               </div>
@@ -728,13 +715,13 @@ const downloadVerificationPlan = () =>
               <PlayCircle className="h-5 w-5 mr-3" />
               Request Demo
             </a>
-            <button
-              onClick={downloadBrochure}
+            <a
+              href={packageDownloadUrl}
               className="border-2 border-white text-white px-12 py-4 rounded-lg font-semibold hover:bg-white hover:text-green-600 transition-colors flex items-center justify-center"
             >
               <Download className="h-5 w-5 mr-3" />
-              Download Brochure
-            </button>
+              Download SdCvP-X for macOS
+            </a>
           </div>
         </div>
       </section>
