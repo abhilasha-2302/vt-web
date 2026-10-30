@@ -280,15 +280,21 @@ export default function SDCVPXPage() {
   //   link.click();
   //   document.body.removeChild(link);
   // };
- const downloadBrochure = () => {
+ const RELEASE_BASE =
+  "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0";
+
+const downloadFile = (fileName) => {
   const link = document.createElement("a");
-  link.href =
-    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/README_UVM.pdf";
-  link.download = "README_UVM.pdf";
+  link.href = `${RELEASE_BASE}/${fileName}`;
+  link.download = fileName;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 };
+
+const downloadPackage = () => downloadFile("SdCvP-X_Package.7z");
+const downloadVerificationPlan = () =>
+  downloadFile("NIC_IP_Verification_Plan.7z");
 // const downloadFile = (url) => {
 //   const link = document.createElement("a");
 //   link.href = url;
