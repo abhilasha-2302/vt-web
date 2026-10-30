@@ -270,19 +270,19 @@ export default function SDCVPXPage() {
       highlight: true
     }
   ];
-  const packageDownloadUrl =
-    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/SdCvP-X_Package.7z";
-  const verificationPlanDownloadUrl =
-    "https://github.com/user-attachments/files/34176671/NIC_IP_Verification_Plan.xlsx";
+  // const packageDownloadUrl =
+  //   "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/SdCvP-X_Package.7z";
+  // const verificationPlanDownloadUrl =
+  //   "https://github.com/user-attachments/files/34176671/NIC_IP_Verification_Plan.xlsx";
 
-  const downloadBrochure = () => {
-    const link = document.createElement("a");
-    link.href = "/sdcvp-x.pdf";
-    link.download = "sdcvp-x.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+  // const downloadBrochure = () => {
+  //   const link = document.createElement("a");
+  //   link.href = "/sdcvp-x.pdf";
+  //   link.download = "sdcvp-x.pdf";
+  //   document.body.appendChild(link);
+  //   link.click();
+  //   document.body.removeChild(link);
+  // };
 // const downloadFile = (url) => {
 //   const link = document.createElement("a");
 //   link.href = url;
@@ -353,20 +353,20 @@ export default function SDCVPXPage() {
                       <PlayCircle className="h-5 w-5 mr-3" />
                       Request Demo
                     </a>
-                    <a
+                    {/* <a
                       href={packageDownloadUrl}
                       className="border-2 border-green-400 text-green-400 px-8 py-4 rounded-lg font-semibold hover:bg-green-400 hover:text-green-900 transition-colors flex items-center justify-center backdrop-blur-sm"
                     >
                       <Download className="h-5 w-5 mr-3" />
                       Download SdCvP-X Package
-                    </a>
-                    <a
+                    </a> */}
+                    {/* <a
                       href={verificationPlanDownloadUrl}
                       className="border-2 border-green-400 text-green-400 px-8 py-4 rounded-lg font-semibold hover:bg-green-400 hover:text-green-900 transition-colors flex items-center justify-center backdrop-blur-sm"
                     >
                       <Download className="h-5 w-5 mr-3" />
                       Download NIC IP Verification Plan
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>
@@ -434,23 +434,7 @@ export default function SDCVPXPage() {
                 AI-Driven Verification for standard (eval version) and custom digital & analog designs
               </p>
               
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <button
-                  onClick={downloadBrochure}
-                  className="inline-flex items-center px-8 py-4 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors"
-                >
-                  <FileText className="h-5 w-5 mr-3" />
-                  Download Technical Brochure
-                </button>
-                <a
-                  href={verificationPlanDownloadUrl}
-                  className="inline-flex items-center px-8 py-4 border-2 border-green-600 text-green-700 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors"
-                >
-                  <Download className="h-5 w-5 mr-3" />
-                  Download NIC IP Verification Plan
-                </a>
               </div>
-            </div>
 
             {/* Carousel Container */}
             <div className="relative overflow-hidden">
@@ -732,7 +716,7 @@ export default function SDCVPXPage() {
               <PlayCircle className="h-5 w-5 mr-3" />
               Request Demo
             </a>
-            <a
+            {/* <a
               href={packageDownloadUrl}
               className="border-2 border-white text-white px-12 py-4 rounded-lg font-semibold hover:bg-white hover:text-green-600 transition-colors flex items-center justify-center"
             >
@@ -745,7 +729,7 @@ export default function SDCVPXPage() {
             >
               <Download className="h-5 w-5 mr-3" />
               Download NIC IP Verification Plan
-            </a>
+            </a> */}
           </div>
         </div>
       </section>
