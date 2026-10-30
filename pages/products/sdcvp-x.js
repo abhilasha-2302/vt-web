@@ -270,20 +270,14 @@ export default function SDCVPXPage() {
       highlight: true
     }
   ];
-
   const packageDownloadUrl =
     "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/SdCvP-X._Package.pkg";
   const verificationPlanDownloadUrl =
     "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/NIC_IP_Verification_Plan.7z";
 
   const downloadAllReleaseFiles = () => {
-    [packageDownloadUrl, verificationPlanDownloadUrl].forEach((url) => {
-      const link = document.createElement("a");
-      link.href = url;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
+    window.open(packageDownloadUrl, "_blank", "noopener,noreferrer");
+    window.location.assign(verificationPlanDownloadUrl);
   };
 
   const downloadBrochure = () => {
