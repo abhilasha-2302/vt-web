@@ -271,7 +271,7 @@ export default function SDCVPXPage() {
     }
   ];
   const packageDownloadUrl =
-    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/SdCvP-X._Package.pkg";
+    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/SdCvP-X_Package.7z";
   const verificationPlanDownloadUrl =
     "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/NIC_IP_Verification_Plan.7z";
 
