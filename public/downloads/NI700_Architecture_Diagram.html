@@ -9,8 +9,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0F1117; color: #E8ECF0; }
   header { background: linear-gradient(135deg, #1A2642 0%, #0D1B2A 100%);
-            border-bottom: 2px solid #2C5F8A; padding: 20px 40px; display: flex;
-            align-items: center; justify-content: space-between; gap: 20px; }
+            border-bottom: 2px solid #2C5F8A; padding: 20px 40px; }
   header h1 { font-size: 1.7rem; color: #4A90D9; }
   header p  { font-size: 0.84rem; color: #8BA3BC; margin-top: 5px; }
   .tabs { display: flex; background: #1A2030; border-bottom: 2px solid #2C3E50; padding: 0 40px; }
@@ -34,22 +33,29 @@
   .diagram-wrapper { background: #fff; border-radius: 10px; padding: 20px;
                       box-shadow: 0 4px 24px rgba(0,0,0,0.5); overflow-x: auto; }
   .mermaid { min-width: 800px; }
-  .confidentiality { flex-shrink: 0; padding: 8px 12px; border: 1px solid #E6B44A;
-                     border-radius: 4px; color: #F5D17A; font-size: 0.72rem;
-                     font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-                     white-space: nowrap; }
-  @media (max-width: 640px) {
-    header { align-items: flex-start; flex-direction: column; }
-  }
+
+  /* ── Confidentiality banner & copy deterrents ── */
+  .conf-banner { background: #2A0F14; border: 2px solid #C0392B; border-left: 8px solid #C0392B;
+                 border-radius: 8px; padding: 16px 20px; margin-bottom: 22px; color: #F5D5D1; }
+  .conf-banner .conf-title { font-size: 1.05rem; font-weight: 800; color: #FF6B5B; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .conf-banner .conf-meta  { font-size: 0.82rem; color: #F0B8B0; margin-bottom: 8px; }
+  .conf-banner .conf-head  { font-size: 0.85rem; font-weight: 700; color: #FF6B5B; margin-bottom: 4px; }
+  .conf-banner p { font-size: 0.8rem; line-height: 1.55; margin-top: 4px; }
+  body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
+         -webkit-touch-callout: none; }
+  img, svg { -webkit-user-drag: none; }
+  #wm { position: fixed; inset: 0; pointer-events: none; z-index: 9999; overflow: hidden; }
+  #wm span { position: absolute; white-space: nowrap; font: 700 20px 'Segoe UI', sans-serif;
+             color: rgba(192,57,43,0.16); transform: rotate(-30deg); }
+  @media print { body * { display: none !important; }
+                 body::before { content: "CONFIDENTIAL - Printing is not permitted."; display: block;
+                                font: 700 24px sans-serif; padding: 40px; } }
 </style>
 </head>
 <body>
 <header>
-  <div>
-    <h1> UVM Verification Architecture</h1>
-    <p>Aspen Plus (AP) Main NI700 NIC top-level RTL wrapper for the Arm NI700 interconnect. Connects 26 masters and 18 slaves  ·  AXI4 + Q-Channel + Debug</p>
-  </div>
-  <div class="confidentiality">Veripoint Technologies — Confidential</div>
+  <h1> UVM Verification Architecture</h1>
+  <p>Aspen Plus (AP) Main NI700 NIC top-level RTL wrapper for the Arm NI700 interconnect. Connects 26 masters and 18 slaves  ·  AXI4 + Q-Channel + Debug</p>
 </header>
 <div class="tabs">
   <div class="tab active" onclick="switchTab(0)"> High-Level Architecture</div>
@@ -58,6 +64,14 @@
 
 <!-- ═══ PANEL 0 ═══ -->
 <div id="panel0" class="panel active">
+  <div class="conf-banner">
+    <div class="conf-title">CONFIDENTIAL - PROPRIETARY DOCUMENT</div>
+    <div class="conf-meta">Licensor: Veripoint Technologies Pvt. Ltd<br/>Document: Definitions &nbsp;|&nbsp; Generated: 2026-10-29 08:27:33</div>
+    <div class="conf-head">PROPRIETARY &amp; CONFIDENTIAL</div>
+    <p>This document and all information contained herein are the exclusive property of Veripoint Technologies Pvt. Ltd. and are protected under applicable intellectual property laws.</p>
+    <p>Unauthorised reproduction, distribution, disclosure, or use of this document in whole or in part without prior written consent from Veripoint Technologies Pvt. Ltd. is strictly prohibited.</p>
+    <p>Recipients of this document are bound by confidentiality obligations and may use the information solely for the purpose for which it was disclosed.</p>
+  </div>
   <div class="diagram-title">Diagram 1 — ni700_top — High-Level Architecture</div>
   <div class="diagram-desc">
     DUT at centre with all <b>26 master</b> ports on the left and all <b>18 slave</b> ports on the right
@@ -78,6 +92,14 @@
 
 <!-- ═══ PANEL 1 ═══ -->
 <div id="panel1" class="panel">
+  <div class="conf-banner">
+    <div class="conf-title">CONFIDENTIAL - PROPRIETARY DOCUMENT</div>
+    <div class="conf-meta">Licensor: Veripoint Technologies Pvt. Ltd<br/>Document: Definitions &nbsp;|&nbsp; Generated: 2026-10-29 08:27:33</div>
+    <div class="conf-head">PROPRIETARY &amp; CONFIDENTIAL</div>
+    <p>This document and all information contained herein are the exclusive property of Veripoint Technologies Pvt. Ltd. and are protected under applicable intellectual property laws.</p>
+    <p>Unauthorised reproduction, distribution, disclosure, or use of this document in whole or in part without prior written consent from Veripoint Technologies Pvt. Ltd. is strictly prohibited.</p>
+    <p>Recipients of this document are bound by confidentiality obligations and may use the information solely for the purpose for which it was disclosed.</p>
+  </div>
   <div class="diagram-title">Diagram 2 — ni700_top — UVM Testbench Hierarchy</div>
   <div class="diagram-desc">
     Full UVM TB hierarchy wrapped inside <b>tb_top</b>.
@@ -229,31 +251,31 @@ const diag1Src = `flowchart LR
     Reset_Interface["Reset Interface<br/><i>Reset generation / sequencing</i>"]
 
     MA01 <-->|"drives & monitors"| MI01
-    MA02 <--> MI02
-    MA03 <--> MI03
-    MA04 <--> MI04
-    MA05 <--> MI05
-    MA06 <--> MI06
-    MA07 <--> MI07
-    MA08 <--> MI08
-    MA09 <--> MI09
-    MA10 <--> MI10
-    MA11 <--> MI11
-    MA12 <--> MI12
-    MA13 <--> MI13
-    MA14 <--> MI14
-    MA15 <--> MI15
-    MA16 <--> MI16
-    MA17 <--> MI17
-    MA18 <--> MI18
-    MA19 <--> MI19
-    MA20 <--> MI20
-    MA21 <--> MI21
-    MA22 <--> MI22
-    MA23 <--> MI23
-    MA24 <--> MI24
-    MA25 <--> MI25
-    MA26 <--> MI26
+    MA02 <-->|"drives & monitors"| MI02
+    MA03 <-->|"drives & monitors"| MI03
+    MA04 <-->|"drives & monitors"| MI04
+    MA05 <-->|"drives & monitors"| MI05
+    MA06 <-->|"drives & monitors"| MI06
+    MA07 <-->|"drives & monitors"| MI07
+    MA08 <-->|"drives & monitors"| MI08
+    MA09 <-->|"drives & monitors"| MI09
+    MA10 <-->|"drives & monitors"| MI10
+    MA11 <-->|"drives & monitors"| MI11
+    MA12 <-->|"drives & monitors"| MI12
+    MA13 <-->|"drives & monitors"| MI13
+    MA14 <-->|"drives & monitors"| MI14
+    MA15 <-->|"drives & monitors"| MI15
+    MA16 <-->|"drives & monitors"| MI16
+    MA17 <-->|"drives & monitors"| MI17
+    MA18 <-->|"drives & monitors"| MI18
+    MA19 <-->|"drives & monitors"| MI19
+    MA20 <-->|"drives & monitors"| MI20
+    MA21 <-->|"drives & monitors"| MI21
+    MA22 <-->|"drives & monitors"| MI22
+    MA23 <-->|"drives & monitors"| MI23
+    MA24 <-->|"drives & monitors"| MI24
+    MA25 <-->|"drives & monitors"| MI25
+    MA26 <-->|"drives & monitors"| MI26
     MI01 <--> DUT
     MI02 <--> DUT
     MI03 <--> DUT
@@ -298,24 +320,24 @@ const diag1Src = `flowchart LR
     DUT <--> SI16
     DUT <--> SI17
     DUT <--> SI18
-    SI01 <--> SA01
-    SI02 <--> SA02
-    SI03 <--> SA03
-    SI04 <--> SA04
-    SI05 <--> SA05
-    SI06 <--> SA06
-    SI07 <--> SA07
-    SI08 <--> SA08
-    SI09 <--> SA09
-    SI10 <--> SA10
-    SI11 <--> SA11
-    SI12 <--> SA12
-    SI13 <--> SA13
-    SI14 <--> SA14
-    SI15 <--> SA15
-    SI16 <--> SA16
-    SI17 <--> SA17
-    SI18 <--> SA18
+    SI01 <-->|"drives & monitors"| SA01
+    SI02 <-->|"drives & monitors"| SA02
+    SI03 <-->|"drives & monitors"| SA03
+    SI04 <-->|"drives & monitors"| SA04
+    SI05 <-->|"drives & monitors"| SA05
+    SI06 <-->|"drives & monitors"| SA06
+    SI07 <-->|"drives & monitors"| SA07
+    SI08 <-->|"drives & monitors"| SA08
+    SI09 <-->|"drives & monitors"| SA09
+    SI10 <-->|"drives & monitors"| SA10
+    SI11 <-->|"drives & monitors"| SA11
+    SI12 <-->|"drives & monitors"| SA12
+    SI13 <-->|"drives & monitors"| SA13
+    SI14 <-->|"drives & monitors"| SA14
+    SI15 <-->|"drives & monitors"| SA15
+    SI16 <-->|"drives & monitors"| SA16
+    SI17 <-->|"drives & monitors"| SA17
+    SI18 <-->|"drives & monitors"| SA18
     qchan_agent <-->|"drives & monitors"| Q_Channel_Interface
     debug_agent <-->|"drives & monitors"| Debug_Interface
     Q_Channel_Interface <-->|"bidirectional"| DUT
@@ -524,6 +546,26 @@ function switchTab(idx) {
   document.querySelectorAll('.panel').forEach((p,i) => p.classList.toggle('active', i===idx));
 }
 renderAll();
+</script>
+<script>
+/* ── Copy deterrents (discourage casual copying; not absolute protection) ── */
+(function(){
+  var stop=function(e){e.preventDefault();return false;};
+  ['contextmenu','copy','cut','dragstart','selectstart'].forEach(function(ev){document.addEventListener(ev,stop);});
+  document.addEventListener('keydown',function(e){
+    var k=(e.key||'').toLowerCase(), c=e.ctrlKey||e.metaKey;
+    if(k==='f12'||k==='printscreen'||(c&&['c','x','s','p','u','a'].indexOf(k)>-1)||(c&&e.shiftKey&&['i','j','c'].indexOf(k)>-1)){e.preventDefault();return false;}
+  });
+  window.addEventListener('keyup',function(e){
+    if((e.key||'')==='PrintScreen'){try{navigator.clipboard.writeText('CONFIDENTIAL - Veripoint Technologies Pvt. Ltd.');}catch(x){}}
+  });
+  /* tiled watermark */
+  var wm=document.createElement('div');wm.id='wm';
+  var t='CONFIDENTIAL \u2022 Veripoint Technologies Pvt. Ltd.';
+  for(var y=-100;y<1600;y+=170){for(var x=-200;x<2400;x+=420){
+    var sp=document.createElement('span');sp.textContent=t;sp.style.left=x+'px';sp.style.top=y+'px';wm.appendChild(sp);}}
+  document.body.appendChild(wm);
+})();
 </script>
 </body>
 </html>
