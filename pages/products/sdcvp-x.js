@@ -274,6 +274,8 @@ export default function SDCVPXPage() {
     "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/SdCvP-X_Package.7z";
   const verificationPlanDownloadUrl =
     "/downloads/NIC_IP_Verification_Plan.xlsx";
+  const ni700ArchitectureDiagramDownloadUrl =
+    "/downloads/NI700_Architecture_Diagram.html";
 
   const downloadBrochure = () => {
     const link = document.createElement("a");
@@ -367,6 +369,14 @@ export default function SDCVPXPage() {
                     >
                       <Download className="h-5 w-5 mr-3" />
                       Download NIC IP Verification Plan
+                    </a>
+                    <a
+                      href={ni700ArchitectureDiagramDownloadUrl}
+                      download
+                      className="border-2 border-green-400 text-green-400 px-8 py-4 rounded-lg font-semibold hover:bg-green-400 hover:text-green-900 transition-colors flex items-center justify-center backdrop-blur-sm"
+                    >
+                      <Download className="h-5 w-5 mr-3" />
+                      Download NI700 Architecture Diagram
                     </a>
                   </div>
                 </div>
@@ -731,6 +741,14 @@ export default function SDCVPXPage() {
             >
               <Download className="h-5 w-5 mr-3" />
               Download NIC IP Verification Plan
+            </a>
+            <a
+              href={ni700ArchitectureDiagramDownloadUrl}
+              download
+              className="border-2 border-white text-white px-12 py-4 rounded-lg font-semibold hover:bg-white hover:text-green-600 transition-colors flex items-center justify-center"
+            >
+              <Download className="h-5 w-5 mr-3" />
+              Download NI700 Architecture Diagram
             </a>
           </div>
         </div>

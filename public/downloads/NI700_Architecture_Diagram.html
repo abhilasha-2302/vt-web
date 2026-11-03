@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>UVM Architecture Diagrams</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0F1117; color: #E8ECF0; }
+  header { background: linear-gradient(135deg, #1A2642 0%, #0D1B2A 100%);
+            border-bottom: 2px solid #2C5F8A; padding: 20px 40px; }
+  header h1 { font-size: 1.7rem; color: #4A90D9; }
+  header p  { font-size: 0.84rem; color: #8BA3BC; margin-top: 5px; }
+  .tabs { display: flex; background: #1A2030; border-bottom: 2px solid #2C3E50; padding: 0 40px; }
+  .tab  { padding: 13px 26px; cursor: pointer; font-size: 0.9rem; color: #8BA3BC;
+           border-bottom: 3px solid transparent; transition: all 0.2s; user-select: none; }
+  .tab:hover  { color: #4A90D9; }
+  .tab.active { color: #4A90D9; border-bottom-color: #4A90D9; font-weight: 600; }
+  .panel      { display: none; padding: 28px 40px; }
+  .panel.active { display: block; }
+  .diagram-title { font-size: 1.2rem; font-weight: 700; color: #4A90D9; margin-bottom: 10px; }
+  .diagram-desc  { font-size: 0.83rem; color: #8BA3BC; margin-bottom: 14px; line-height: 1.55; }
+  .legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px;
+             padding: 10px 14px; background: #1A2030; border-radius: 8px;
+             border: 1px solid #2C3E50; }
+  .legend-label { font-size: 0.72rem; color: #8BA3BC; font-weight: 700;
+                   text-transform: uppercase; letter-spacing: 0.06em;
+                   width: 100%; margin-bottom: 3px; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.79rem; color: #C8D6E5; }
+  .swatch { width: 13px; height: 13px; border-radius: 3px; flex-shrink: 0;
+             border: 1px solid rgba(255,255,255,0.18); }
+  .diagram-wrapper { background: #fff; border-radius: 10px; padding: 20px;
+                      box-shadow: 0 4px 24px rgba(0,0,0,0.5); overflow-x: auto; }
+  .mermaid { min-width: 800px; }
+</style>
+</head>
+<body>
+<header>
+  <h1> UVM Verification Architecture</h1>
+  <p>Aspen Plus (AP) Main NI700 NIC top-level RTL wrapper for the Arm NI700 interconnect. Connects 26 masters and 18 slaves  ·  AXI4 + Q-Channel + Debug</p>
+</header>
+<div class="tabs">
+  <div class="tab active" onclick="switchTab(0)"> High-Level Architecture</div>
+  <div class="tab"        onclick="switchTab(1)">️ UVM TB Hierarchy</div>
+</div>
+
+<!-- ═══ PANEL 0 ═══ -->
+<div id="panel0" class="panel active">
+  <div class="diagram-title">Diagram 1 — ni700_top — High-Level Architecture</div>
+  <div class="diagram-desc">
+    DUT at centre with all <b>26 master</b> ports on the left and all <b>18 slave</b> ports on the right
+    (from the Master_Slave_mapping_main_Ni700 and Main_NI700_port_description sheets). Every port has its own interface and its own UVM Agent
+    (master agents drive requests; slave agents act as responders). Q-Channel and Debug sideband agents are also shown.
+    Arrows show direction: → input to DUT · ← output from DUT · ↔ bidirectional.
+  </div>
+  <div class="legend">
+    <div class="legend-label">Colour key — Diagram 1</div>
+    <div class="legend-item"><div class="swatch" style="background:#4A90D9"></div>DUT</div>
+    <div class="legend-item"><div class="swatch" style="background:#16A085"></div>Master Agent (26) / sideband agents</div>
+    <div class="legend-item"><div class="swatch" style="background:#117864"></div>Slave Agent (18, responder)</div>
+    <div class="legend-item"><div class="swatch" style="background:#7F8C8D"></div>Passive Agent (monitors only)</div>
+    <div class="legend-item"><div class="swatch" style="background:#1F618D"></div>Interface (all — uniform colour)</div>
+  </div>
+  <div class="diagram-wrapper"><div class="mermaid" id="diag1"></div></div>
+</div>
+
+<!-- ═══ PANEL 1 ═══ -->
+<div id="panel1" class="panel">
+  <div class="diagram-title">Diagram 2 — ni700_top — UVM Testbench Hierarchy</div>
+  <div class="diagram-desc">
+    Full UVM TB hierarchy wrapped inside <b>tb_top</b>.
+    <b>Optimised:</b> a single <b>axi_master_agent</b> class (instantiated 26 times) and a single <b>axi_slave_agent</b> class (instantiated 18 times)
+    are shown once each, with one virtual-interface array per side (axi_mst_if[26], axi_slv_if[18]). Per-port behaviour comes from config objects.
+    Active agents (driver + sequencer + monitor) in green.
+    Virtual sequencer inside env connects to all active sequencers (AXI master, AXI slave, Q-channel, debug, clock, reset).
+    <b>All monitors</b> send transactions to scoreboard AND coverage via analysis ports.
+    The test box holds the virtual sequence and the env. Clock and reset each have their own agent and virtual interface, matching Diagram 1.
+  </div>
+  <div class="legend">
+    <div class="legend-label">Colour key — Diagram 2</div>
+    <div class="legend-item"><div class="swatch" style="background:#FADADD;border:2px solid #D81B60"></div>tb_top (top-level module)</div>
+    <div class="legend-item"><div class="swatch" style="background:#E8F8F5;border:2px solid #1ABC9C"></div>UVM Test (box: base_test + virtual seq + env)</div>
+    <div class="legend-item"><div class="swatch" style="background:#2ECC71"></div>Virtual Sequence / Virtual Sequencer</div>
+    <div class="legend-item"><div class="swatch" style="background:#EAF2FB;border:2px solid #2471A3"></div>UVM Env</div>
+    <div class="legend-item"><div class="swatch" style="background:#16A085"></div>Master Agent (x26 instances) / sideband agents</div>
+    <div class="legend-item"><div class="swatch" style="background:#117864"></div>Slave Agent (x18 instances)</div>
+    <div class="legend-item"><div class="swatch" style="background:#7F8C8D"></div>Passive Agent (monitor only)</div>
+    <div class="legend-item"><div class="swatch" style="background:#E74C3C"></div>Scoreboard (uvm_scoreboard) ← all monitors via analysis port</div>
+    <div class="legend-item"><div class="swatch" style="background:#D35400"></div>Coverage (uvm_component) ← all monitors via analysis port</div>
+    <div class="legend-item"><div class="swatch" style="background:#1F618D"></div>Virtual Interfaces (all — uniform colour)</div>
+    <div class="legend-item"><div class="swatch" style="background:#FFE8F3"></div>DUT RTL Module</div>
+  </div>
+  <div class="diagram-wrapper"><div class="mermaid" id="diag2"></div></div>
+</div>
+
+<script>
+mermaid.initialize({
+  startOnLoad: false,
+  theme: 'default',
+  flowchart: { curve: 'basis', nodeSpacing: 60, rankSpacing: 80, padding: 20 },
+  securityLevel: 'loose',
+});
+const diag1Src = `flowchart LR
+    DUT["ni700_top<br/>Aspen Plus Main NI700 NIC top-level RTL wrapper (Arm NI700)<br/><b>26 masters · 18 slaves</b>"]
+
+    subgraph ENV_M["UVM Environment — AXI Master Agents (26)"]
+        direction TB
+        MA01["mst_agent[0]<br/>R82_MM"]
+        MA02["mst_agent[1]<br/>RISCV_Ni700 (EL2)"]
+        MA03["mst_agent[2]<br/>SYSDMA0_m0"]
+        MA04["mst_agent[3]<br/>SYSDMA0_m1"]
+        MA05["mst_agent[4]<br/>SYSDMA1_m0"]
+        MA06["mst_agent[5]<br/>SYSDMA1_m1"]
+        MA07["mst_agent[6]<br/>SSS_AXI_MASTER"]
+        MA08["mst_agent[7]<br/>SSS_AHB_MASTER"]
+        MA09["mst_agent[8]<br/>BEACE_WR"]
+        MA10["mst_agent[9]<br/>BEACE_RD"]
+        MA11["mst_agent[10]<br/>FEACE"]
+        MA12["mst_agent[11]<br/>FIS_NVME_DMA_M0"]
+        MA13["mst_agent[12]<br/>FIS_NVME_DMA_M1"]
+        MA14["mst_agent[13]<br/>NVM_P0_PCIE_DMA_AXI"]
+        MA15["mst_agent[14]<br/>NVM_P1_PCIE_DMA_AXI"]
+        MA16["mst_agent[15]<br/>NVME_CMD_DMA_AHB"]
+        MA17["mst_agent[16]<br/>NVM_PIO_AHB"]
+        MA18["mst_agent[17]<br/>PSS_DOE_AHB"]
+        MA19["mst_agent[18]<br/>DAP"]
+        MA20["mst_agent[19]<br/>L2P_AXI"]
+        MA21["mst_agent[20]<br/>GDMA_M0_AXI"]
+        MA22["mst_agent[21]<br/>ETR_INST"]
+        MA23["mst_agent[22]<br/>ETR_DATA"]
+        MA24["mst_agent[23]<br/>Message_Ni700"]
+        MA25["mst_agent[24]<br/>BE_DPS"]
+        MA26["mst_agent[25]<br/>BE_NIC"]
+    end
+    subgraph IF_M["Master-side AXI Interfaces (into NIC)"]
+        direction TB
+        MI01["ifs_cpuss_nic_r82_mm_port"]
+        MI02["ifm_el2icnt_nic_axim"]
+        MI03["ifm_sysdma0_nic_m0"]
+        MI04["ifm_sysdma0_nic_m1"]
+        MI05["ifm_sysdma1_nic_m0"]
+        MI06["ifm_sysdma1_nic_m1"]
+        MI07["ifm_sss_nic_axi"]
+        MI08["ifm_sss_nic_ahb_m"]
+        MI09["ifm_beace_nic_m_if_wr"]
+        MI10["ifm_beace_nic_m_if_rd"]
+        MI11["ifm_feace_nic_axim"]
+        MI12["ifm_fis_nic_nvme_dma_m0"]
+        MI13["ifm_fis_nic_nvme_dma_m1"]
+        MI14["ifm_nvm_nic_axim"]
+        MI15["ifm_nvm_nic_axim_p1"]
+        MI16["ifm_nvme_nic_cmd_dma"]
+        MI17["ifm_nvm_pio_ahbm"]
+        MI18["ifm_pss_doe_ahbm"]
+        MI19["dap_m"]
+        MI20["ifs_l2p_nic_axim"]
+        MI21["ifm_gdma_nic_m0"]
+        MI22["ifm_etr_inst"]
+        MI23["ifm_etr_data"]
+        MI24["ifm_msgnic_nic_axi"]
+        MI25["ifm_beni700_main_dps"]
+        MI26["ifm_beni700_main"]
+    end
+    subgraph IF_S["Slave-side AXI Interfaces (out of NIC)"]
+        direction TB
+        SI01["ifs_nic_cpuss_r82_macp"]
+        SI02["ifs_nic_cpuss_r82_acels_tcm_llram"]
+        SI03["ifs_nic_el2icnt_axis"]
+        SI04["ifm_nic_febm0_axi4"]
+        SI05["ifm_nic_febm1_axi4"]
+        SI06["ifs_nic_sdsr0_axi_s_if_rd"]
+        SI07["ifs_nic_sdsr1_axi_s_if_rd"]
+        SI08["ifs_nic_dps_aslv0"]
+        SI09["ifs_nic_dps_aslv1"]
+        SI10["ifs_nic_nvme_cfg"]
+        SI11["ifs_nic_nvme_d2h"]
+        SI12["ifs_nic_feace_axis"]
+        SI13["ifs_nic_qspi_slv"]
+        SI14["ifs_nic_msgicnt_axis"]
+        SI15["dap_s"]
+        SI16["ifs_nic_sss_axi"]
+        SI17["ifs_nic_pss_phy_ahbs"]
+        SI18["ifs_beni700_main"]
+    end
+    subgraph ENV_S["UVM Environment — AXI Slave Agents (18)"]
+        direction TB
+        SA01["slv_agent[0]<br/>R82_MACP (DDR0)"]
+        SA02["slv_agent[1]<br/>R82_ACELS (DTCM/LLRAM)"]
+        SA03["slv_agent[2]<br/>RISCV_Ni700 (EL2)"]
+        SA04["slv_agent[3]<br/>FEBM0"]
+        SA05["slv_agent[4]<br/>FEBM1"]
+        SA06["slv_agent[5]<br/>SDSR0"]
+        SA07["slv_agent[6]<br/>SDSR1"]
+        SA08["slv_agent[7]<br/>DPS_0"]
+        SA09["slv_agent[8]<br/>DPS_1"]
+        SA10["slv_agent[9]<br/>FIS_NVME_CFG"]
+        SA11["slv_agent[10]<br/>FIS_NVME_D2H"]
+        SA12["slv_agent[11]<br/>FEACE"]
+        SA13["slv_agent[12]<br/>QSPI"]
+        SA14["slv_agent[13]<br/>MSG_Ni700"]
+        SA15["slv_agent[14]<br/>DAP"]
+        SA16["slv_agent[15]<br/>SSS"]
+        SA17["slv_agent[16]<br/>PSS_PHY"]
+        SA18["slv_agent[17]<br/>BE_Ni700"]
+    end
+
+    subgraph ENV_SB["UVM Environment — Sideband Agents"]
+        direction TB
+        qchan_agent["Qchan Agent<br/>(Active Agent)"]
+        debug_agent["Debug Agent<br/>(Active Agent)"]
+        clk_agent["Clock Agent<br/>(Active Agent)"]
+        rst_agent["Reset Agent<br/>(Active Agent)"]
+    end
+    Q_Channel_Interface["Q Channel Interface<br/><i>ARM Q-Channel Low-Power Handshake Protocol</i>"]
+    Debug_Interface["Debug Interface<br/><i>ARM CoreSight Debug Control Sideband</i>"]
+    Clock_Interface["Clock Interface<br/><i>Clock generation for NIC clock domains</i>"]
+    Reset_Interface["Reset Interface<br/><i>Reset generation / sequencing</i>"]
+
+    MA01 <-->|"drives & monitors"| MI01
+    MA02 <--> MI02
+    MA03 <--> MI03
+    MA04 <--> MI04
+    MA05 <--> MI05
+    MA06 <--> MI06
+    MA07 <--> MI07
+    MA08 <--> MI08
+    MA09 <--> MI09
+    MA10 <--> MI10
+    MA11 <--> MI11
+    MA12 <--> MI12
+    MA13 <--> MI13
+    MA14 <--> MI14
+    MA15 <--> MI15
+    MA16 <--> MI16
+    MA17 <--> MI17
+    MA18 <--> MI18
+    MA19 <--> MI19
+    MA20 <--> MI20
+    MA21 <--> MI21
+    MA22 <--> MI22
+    MA23 <--> MI23
+    MA24 <--> MI24
+    MA25 <--> MI25
+    MA26 <--> MI26
+    MI01 <--> DUT
+    MI02 <--> DUT
+    MI03 <--> DUT
+    MI04 <--> DUT
+    MI05 <--> DUT
+    MI06 <--> DUT
+    MI07 <--> DUT
+    MI08 <--> DUT
+    MI09 <--> DUT
+    MI10 <--> DUT
+    MI11 <--> DUT
+    MI12 <--> DUT
+    MI13 <--> DUT
+    MI14 <--> DUT
+    MI15 <--> DUT
+    MI16 <--> DUT
+    MI17 <--> DUT
+    MI18 <--> DUT
+    MI19 <--> DUT
+    MI20 <--> DUT
+    MI21 <--> DUT
+    MI22 <--> DUT
+    MI23 <--> DUT
+    MI24 <--> DUT
+    MI25 <--> DUT
+    MI26 <--> DUT
+    DUT <--> SI01
+    DUT <--> SI02
+    DUT <--> SI03
+    DUT <--> SI04
+    DUT <--> SI05
+    DUT <--> SI06
+    DUT <--> SI07
+    DUT <--> SI08
+    DUT <--> SI09
+    DUT <--> SI10
+    DUT <--> SI11
+    DUT <--> SI12
+    DUT <--> SI13
+    DUT <--> SI14
+    DUT <--> SI15
+    DUT <--> SI16
+    DUT <--> SI17
+    DUT <--> SI18
+    SI01 <--> SA01
+    SI02 <--> SA02
+    SI03 <--> SA03
+    SI04 <--> SA04
+    SI05 <--> SA05
+    SI06 <--> SA06
+    SI07 <--> SA07
+    SI08 <--> SA08
+    SI09 <--> SA09
+    SI10 <--> SA10
+    SI11 <--> SA11
+    SI12 <--> SA12
+    SI13 <--> SA13
+    SI14 <--> SA14
+    SI15 <--> SA15
+    SI16 <--> SA16
+    SI17 <--> SA17
+    SI18 <--> SA18
+    qchan_agent <-->|"drives & monitors"| Q_Channel_Interface
+    debug_agent <-->|"drives & monitors"| Debug_Interface
+    Q_Channel_Interface <-->|"bidirectional"| DUT
+    Debug_Interface <-->|"bidirectional"| DUT
+    clk_agent -->|"drives"| Clock_Interface
+    rst_agent -->|"drives"| Reset_Interface
+    Clock_Interface -->|"clocks"| DUT
+    Reset_Interface -->|"resets"| DUT
+
+    classDef mAgent fill:#16A085,color:#fff,stroke:#0E6655
+    classDef sAgent fill:#117864,color:#fff,stroke:#0B5345
+    classDef ifc fill:#1F618D,color:#fff,stroke:#154360
+    class MA01,MA02,MA03,MA04,MA05,MA06,MA07,MA08,MA09,MA10,MA11,MA12,MA13,MA14,MA15,MA16,MA17,MA18,MA19,MA20,MA21,MA22,MA23,MA24,MA25,MA26,qchan_agent,debug_agent,clk_agent,rst_agent mAgent
+    class SA01,SA02,SA03,SA04,SA05,SA06,SA07,SA08,SA09,SA10,SA11,SA12,SA13,SA14,SA15,SA16,SA17,SA18 sAgent
+    class MI01,MI02,MI03,MI04,MI05,MI06,MI07,MI08,MI09,MI10,MI11,MI12,MI13,MI14,MI15,MI16,MI17,MI18,MI19,MI20,MI21,MI22,MI23,MI24,MI25,MI26,SI01,SI02,SI03,SI04,SI05,SI06,SI07,SI08,SI09,SI10,SI11,SI12,SI13,SI14,SI15,SI16,SI17,SI18,Q_Channel_Interface,Debug_Interface,Clock_Interface,Reset_Interface ifc
+    style DUT fill:#4A90D9,color:#fff,stroke:#2C5F8A,stroke-width:3px
+    style ENV_M fill:#F0F4FF,stroke:#6C8EBF,stroke-dasharray:6
+    style ENV_S fill:#F0F4FF,stroke:#6C8EBF,stroke-dasharray:6
+    style ENV_SB fill:#F0F4FF,stroke:#6C8EBF,stroke-dasharray:6
+    style IF_M fill:#EAF2FB,stroke:#2471A3,stroke-dasharray:3
+    style IF_S fill:#EAF2FB,stroke:#2471A3,stroke-dasharray:3`;
+const diag2Src = `flowchart TD
+
+    subgraph TBTOP["tb_top  (Top-level Testbench Module)"]
+        direction TB
+
+        subgraph TESTBOX["UVM Test"]
+        direction TB
+        TEST["ni700_top_base_test<br/>(parent of all test classes)<br/>extends uvm_test"]
+        VSEQ["ni700_top_virtual_seq<br/>virtual sequence"]
+
+        subgraph ENV_SG["ni700_top_env  extends uvm_env"]
+            direction LR
+
+            VSEQR["virtual_sequencer<br/>extends uvm_sequencer"]
+
+            subgraph SBCOV_SG["Analysis Components"]
+                direction TB
+                SB["ni700_top_scoreboard<br/>extends uvm_scoreboard"]
+                COV["ni700_top_coverage<br/>extends uvm_component"]
+            end
+
+            subgraph ACTIVE_SG["Active Agents  (sequencer + driver + monitor)"]
+                direction TB
+                subgraph axi_mst_SG["axi_master_agent (x26)"]
+                    direction TB
+                    axi_mst_SEQ["axi_master_sequencer<br/>uvm_sequencer"]
+                    axi_mst_DRV["axi_master_driver<br/>uvm_driver"]
+                    axi_mst_MON["axi_master_monitor<br/>uvm_monitor"]
+                end
+                subgraph axi_slv_SG["axi_slave_agent (x18)"]
+                    direction TB
+                    axi_slv_SEQ["axi_slave_sequencer<br/>uvm_sequencer"]
+                    axi_slv_DRV["axi_slave_driver (responder)<br/>uvm_driver"]
+                    axi_slv_MON["axi_slave_monitor<br/>uvm_monitor"]
+                end
+                subgraph qchan_agent_SG["qchan_agent"]
+                    direction TB
+                    qchan_agent_SEQ["qchan_agent_sequencer<br/>uvm_sequencer"]
+                    qchan_agent_DRV["qchan_agent_driver<br/>uvm_driver"]
+                    qchan_agent_MON["qchan_agent_monitor<br/>uvm_monitor"]
+                end
+                subgraph debug_agent_SG["debug_agent"]
+                    direction TB
+                    debug_agent_SEQ["debug_agent_sequencer<br/>uvm_sequencer"]
+                    debug_agent_DRV["debug_agent_driver<br/>uvm_driver"]
+                    debug_agent_MON["debug_agent_monitor<br/>uvm_monitor"]
+                end
+                subgraph clk_agent_SG["clk_agent"]
+                    direction TB
+                    clk_agent_SEQ["clk_agent_sequencer<br/>uvm_sequencer"]
+                    clk_agent_DRV["clk_agent_driver<br/>uvm_driver"]
+                    clk_agent_MON["clk_agent_monitor<br/>uvm_monitor"]
+                end
+                subgraph rst_agent_SG["rst_agent"]
+                    direction TB
+                    rst_agent_SEQ["rst_agent_sequencer<br/>uvm_sequencer"]
+                    rst_agent_DRV["rst_agent_driver<br/>uvm_driver"]
+                    rst_agent_MON["rst_agent_monitor<br/>uvm_monitor"]
+                end
+            end
+        end
+        end
+
+        axi_mst_if["axi_mst_if [26]<br/>virtual interface (one per master port)<br/>AXI4"]
+        axi_slv_if["axi_slv_if [18]<br/>virtual interface (one per slave port)<br/>AXI4"]
+        qchan_if["qchan_if<br/>virtual interface<br/>ARM Q-Channel Low-Power Handshake Protocol"]
+        debug_if["debug_if<br/>virtual interface<br/>ARM CoreSight Debug Control Sideband"]
+        clk_if["clk_if<br/>virtual interface<br/>Clock generation for NIC clock domains"]
+        rst_if["rst_if<br/>virtual interface<br/>Reset generation / sequencing"]
+
+        DUT["ni700_top DUT<br/>RTL Module"]
+    end
+
+    TEST -->|builds & configures| ENV_SG
+    TEST -->|start sequence| VSEQ
+    VSEQ -->|starts multiple sequences| VSEQR
+
+    VSEQR -->|"connected to (x26)"| axi_mst_SEQ
+    VSEQR -->|"connected to (x18)"| axi_slv_SEQ
+    VSEQR -->|connected to| qchan_agent_SEQ
+    VSEQR -->|connected to| debug_agent_SEQ
+    VSEQR -->|connected to| clk_agent_SEQ
+    VSEQR -->|connected to| rst_agent_SEQ
+
+    axi_mst_SEQ -->|seq items| axi_mst_DRV
+    axi_slv_SEQ -->|seq items| axi_slv_DRV
+    qchan_agent_SEQ -->|seq items| qchan_agent_DRV
+    debug_agent_SEQ -->|seq items| debug_agent_DRV
+    clk_agent_SEQ -->|seq items| clk_agent_DRV
+    rst_agent_SEQ -->|seq items| rst_agent_DRV
+
+    axi_mst_DRV -->|drives| axi_mst_if
+    axi_slv_DRV -->|drives| axi_slv_if
+    qchan_agent_DRV -->|drives| qchan_if
+    debug_agent_DRV -->|drives| debug_if
+    clk_agent_DRV -->|drives| clk_if
+    rst_agent_DRV -->|drives| rst_if
+
+    axi_mst_if -->|samples| axi_mst_MON
+    axi_slv_if -->|samples| axi_slv_MON
+    qchan_if -->|samples| qchan_agent_MON
+    debug_if -->|samples| debug_agent_MON
+    clk_if -->|samples| clk_agent_MON
+    rst_if -->|samples| rst_agent_MON
+
+    axi_mst_if <-->|DUT ports| DUT
+    axi_slv_if <-->|DUT ports| DUT
+    qchan_if <-->|DUT ports| DUT
+    debug_if <-->|DUT ports| DUT
+    clk_if <-->|DUT ports| DUT
+    rst_if <-->|DUT ports| DUT
+
+    axi_mst_MON -->|analysis port| SB
+    axi_slv_MON -->|analysis port| SB
+    qchan_agent_MON -->|analysis port| SB
+    debug_agent_MON -->|analysis port| SB
+    clk_agent_MON -->|analysis port| SB
+    rst_agent_MON -->|analysis port| SB
+
+    axi_mst_MON -->|analysis port| COV
+    axi_slv_MON -->|analysis port| COV
+    qchan_agent_MON -->|analysis port| COV
+    debug_agent_MON -->|analysis port| COV
+    clk_agent_MON -->|analysis port| COV
+    rst_agent_MON -->|analysis port| COV
+
+    SB -->|analysis port| COV
+
+
+    style TBTOP    fill:#FADADD,stroke:#D81B60,stroke-width:3px,color:#AD1457
+    style TEST     fill:#1ABC9C,color:#fff,stroke:#0E8C72,stroke-width:2px
+    style VSEQ     fill:#2ECC71,color:#fff,stroke:#1E8449,stroke-width:2px
+    style VSEQR    fill:#2ECC71,color:#fff,stroke:#1E8449,stroke-width:2px
+    style ENV_SG   fill:#EAF2FB,stroke:#2471A3,stroke-width:2px
+    style SBCOV_SG fill:#FDF2E9,stroke:#E67E22,stroke-width:1px
+    style SB       fill:#E74C3C,color:#fff,stroke:#A93226,stroke-width:2px
+    style COV      fill:#D35400,color:#fff,stroke:#A04000,stroke-width:2px
+    style DUT      fill:#FFE8F3,color:#4A1428,stroke:#D81B60,stroke-width:3px
+    style ACTIVE_SG  fill:#E9F7EF,stroke:#16A085,stroke-width:2px
+    style axi_mst_SG  fill:#D5F5E3,stroke:#16A085,stroke-dasharray:4
+    style axi_mst_SEQ fill:#16A085,color:#fff,stroke:#0E6655
+    style axi_mst_DRV fill:#16A085,color:#fff,stroke:#0E6655
+    style axi_mst_MON fill:#16A085,color:#fff,stroke:#0E6655
+    style axi_slv_SG  fill:#D1F2EB,stroke:#117864,stroke-dasharray:4
+    style axi_slv_SEQ fill:#117864,color:#fff,stroke:#0B5345
+    style axi_slv_DRV fill:#117864,color:#fff,stroke:#0B5345
+    style axi_slv_MON fill:#117864,color:#fff,stroke:#0B5345
+    style qchan_agent_SG  fill:#D5F5E3,stroke:#16A085,stroke-dasharray:4
+    style qchan_agent_SEQ fill:#16A085,color:#fff,stroke:#0E6655
+    style qchan_agent_DRV fill:#16A085,color:#fff,stroke:#0E6655
+    style qchan_agent_MON fill:#16A085,color:#fff,stroke:#0E6655
+    style debug_agent_SG  fill:#D5F5E3,stroke:#16A085,stroke-dasharray:4
+    style debug_agent_SEQ fill:#16A085,color:#fff,stroke:#0E6655
+    style debug_agent_DRV fill:#16A085,color:#fff,stroke:#0E6655
+    style debug_agent_MON fill:#16A085,color:#fff,stroke:#0E6655
+    style clk_agent_SG  fill:#D5F5E3,stroke:#16A085,stroke-dasharray:4
+    style clk_agent_SEQ fill:#16A085,color:#fff,stroke:#0E6655
+    style clk_agent_DRV fill:#16A085,color:#fff,stroke:#0E6655
+    style clk_agent_MON fill:#16A085,color:#fff,stroke:#0E6655
+    style clk_if fill:#1F618D,color:#fff,stroke:#154360,stroke-width:2px
+    style rst_agent_SG  fill:#D5F5E3,stroke:#16A085,stroke-dasharray:4
+    style rst_agent_SEQ fill:#16A085,color:#fff,stroke:#0E6655
+    style rst_agent_DRV fill:#16A085,color:#fff,stroke:#0E6655
+    style rst_agent_MON fill:#16A085,color:#fff,stroke:#0E6655
+    style rst_if fill:#1F618D,color:#fff,stroke:#154360,stroke-width:2px
+    style TESTBOX fill:#E8F8F5,stroke:#1ABC9C,stroke-width:3px,color:#0E6655
+    style axi_mst_if fill:#1F618D,color:#fff,stroke:#154360,stroke-width:2px
+    style axi_slv_if fill:#1F618D,color:#fff,stroke:#154360,stroke-width:2px
+    style qchan_if fill:#1F618D,color:#fff,stroke:#154360,stroke-width:2px
+    style debug_if fill:#1F618D,color:#fff,stroke:#154360,stroke-width:2px`;
+async function renderAll() {
+  for (const [id, src] of [['diag1', diag1Src], ['diag2', diag2Src]]) {
+    try {
+      const r = await mermaid.render('g_' + id, src);
+      document.getElementById(id).innerHTML = r.svg;
+    } catch(e) {
+      document.getElementById(id).innerHTML =
+        '<pre style="color:red;padding:12px">Parse error: ' + e.message + '</pre>';
+      console.error(id, e);
+    }
+  }
+}
+function switchTab(idx) {
+  document.querySelectorAll('.tab').forEach((t,i)   => t.classList.toggle('active', i===idx));
+  document.querySelectorAll('.panel').forEach((p,i) => p.classList.toggle('active', i===idx));
+}
+renderAll();
+</script>
+</body>
+</html>
