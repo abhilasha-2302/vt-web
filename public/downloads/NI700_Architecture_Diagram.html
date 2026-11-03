@@ -72,7 +72,7 @@
     <p>Unauthorised reproduction, distribution, disclosure, or use of this document in whole or in part without prior written consent from Veripoint Technologies Pvt. Ltd. is strictly prohibited.</p>
     <p>Recipients of this document are bound by confidentiality obligations and may use the information solely for the purpose for which it was disclosed.</p>
   </div>
-  <div class="diagram-title">Diagram 1 — ni700_top — High-Level Architecture</div>
+  <div class="diagram-title">Diagram 1 - ni700_top - High-Level Architecture</div>
   <div class="diagram-desc">
     DUT at centre with all <b>26 master</b> ports on the left and all <b>18 slave</b> ports on the right
     (from the Master_Slave_mapping_main_Ni700 and Main_NI700_port_description sheets). Every port has its own interface and its own UVM Agent
@@ -80,12 +80,12 @@
     Arrows show direction: → input to DUT · ← output from DUT · ↔ bidirectional.
   </div>
   <div class="legend">
-    <div class="legend-label">Colour key — Diagram 1</div>
+    <div class="legend-label">Colour key - Diagram 1</div>
     <div class="legend-item"><div class="swatch" style="background:#4A90D9"></div>DUT</div>
     <div class="legend-item"><div class="swatch" style="background:#16A085"></div>Master Agent (26) / sideband agents</div>
     <div class="legend-item"><div class="swatch" style="background:#117864"></div>Slave Agent (18, responder)</div>
     <div class="legend-item"><div class="swatch" style="background:#7F8C8D"></div>Passive Agent (monitors only)</div>
-    <div class="legend-item"><div class="swatch" style="background:#1F618D"></div>Interface (all — uniform colour)</div>
+    <div class="legend-item"><div class="swatch" style="background:#1F618D"></div>Interface (all - uniform colour)</div>
   </div>
   <div class="diagram-wrapper"><div class="mermaid" id="diag1"></div></div>
 </div>
@@ -100,7 +100,7 @@
     <p>Unauthorised reproduction, distribution, disclosure, or use of this document in whole or in part without prior written consent from Veripoint Technologies Pvt. Ltd. is strictly prohibited.</p>
     <p>Recipients of this document are bound by confidentiality obligations and may use the information solely for the purpose for which it was disclosed.</p>
   </div>
-  <div class="diagram-title">Diagram 2 — ni700_top — UVM Testbench Hierarchy</div>
+  <div class="diagram-title">Diagram 2 - ni700_top - UVM Testbench Hierarchy</div>
   <div class="diagram-desc">
     Full UVM TB hierarchy wrapped inside <b>tb_top</b>.
     <b>Optimised:</b> a single <b>axi_master_agent</b> class (instantiated 26 times) and a single <b>axi_slave_agent</b> class (instantiated 18 times)
@@ -111,7 +111,7 @@
     The test box holds the virtual sequence and the env. Clock and reset each have their own agent and virtual interface, matching Diagram 1.
   </div>
   <div class="legend">
-    <div class="legend-label">Colour key — Diagram 2</div>
+    <div class="legend-label">Colour key - Diagram 2</div>
     <div class="legend-item"><div class="swatch" style="background:#FADADD;border:2px solid #D81B60"></div>tb_top (top-level module)</div>
     <div class="legend-item"><div class="swatch" style="background:#E8F8F5;border:2px solid #1ABC9C"></div>UVM Test (box: base_test + virtual seq + env)</div>
     <div class="legend-item"><div class="swatch" style="background:#2ECC71"></div>Virtual Sequence / Virtual Sequencer</div>
@@ -121,7 +121,7 @@
     <div class="legend-item"><div class="swatch" style="background:#7F8C8D"></div>Passive Agent (monitor only)</div>
     <div class="legend-item"><div class="swatch" style="background:#E74C3C"></div>Scoreboard (uvm_scoreboard) ← all monitors via analysis port</div>
     <div class="legend-item"><div class="swatch" style="background:#D35400"></div>Coverage (uvm_component) ← all monitors via analysis port</div>
-    <div class="legend-item"><div class="swatch" style="background:#1F618D"></div>Virtual Interfaces (all — uniform colour)</div>
+    <div class="legend-item"><div class="swatch" style="background:#1F618D"></div>Virtual Interfaces (all - uniform colour)</div>
     <div class="legend-item"><div class="swatch" style="background:#FFE8F3"></div>DUT RTL Module</div>
   </div>
   <div class="diagram-wrapper"><div class="mermaid" id="diag2"></div></div>
@@ -137,7 +137,7 @@ mermaid.initialize({
 const diag1Src = `flowchart LR
     DUT["ni700_top<br/>Aspen Plus Main NI700 NIC top-level RTL wrapper (Arm NI700)<br/><b>26 masters · 18 slaves</b>"]
 
-    subgraph ENV_M["UVM Environment — AXI Master Agents (26)"]
+    subgraph ENV_M["UVM Environment - AXI Master Agents (26)"]
         direction TB
         MA01["mst_agent[0]<br/>R82_MM"]
         MA02["mst_agent[1]<br/>RISCV_Ni700 (EL2)"]
@@ -216,7 +216,7 @@ const diag1Src = `flowchart LR
         SI17["ifs_nic_pss_phy_ahbs"]
         SI18["ifs_beni700_main"]
     end
-    subgraph ENV_S["UVM Environment — AXI Slave Agents (18)"]
+    subgraph ENV_S["UVM Environment - AXI Slave Agents (18)"]
         direction TB
         SA01["slv_agent[0]<br/>R82_MACP (DDR0)"]
         SA02["slv_agent[1]<br/>R82_ACELS (DTCM/LLRAM)"]
@@ -238,7 +238,7 @@ const diag1Src = `flowchart LR
         SA18["slv_agent[17]<br/>BE_Ni700"]
     end
 
-    subgraph ENV_SB["UVM Environment — Sideband Agents"]
+    subgraph ENV_SB["UVM Environment - Sideband Agents"]
         direction TB
         qchan_agent["Qchan Agent<br/>(Active Agent)"]
         debug_agent["Debug Agent<br/>(Active Agent)"]
