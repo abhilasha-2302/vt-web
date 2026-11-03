@@ -9,7 +9,8 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0F1117; color: #E8ECF0; }
   header { background: linear-gradient(135deg, #1A2642 0%, #0D1B2A 100%);
-            border-bottom: 2px solid #2C5F8A; padding: 20px 40px; }
+            border-bottom: 2px solid #2C5F8A; padding: 20px 40px; display: flex;
+            align-items: center; justify-content: space-between; gap: 20px; }
   header h1 { font-size: 1.7rem; color: #4A90D9; }
   header p  { font-size: 0.84rem; color: #8BA3BC; margin-top: 5px; }
   .tabs { display: flex; background: #1A2030; border-bottom: 2px solid #2C3E50; padding: 0 40px; }
@@ -33,12 +34,22 @@
   .diagram-wrapper { background: #fff; border-radius: 10px; padding: 20px;
                       box-shadow: 0 4px 24px rgba(0,0,0,0.5); overflow-x: auto; }
   .mermaid { min-width: 800px; }
+  .confidentiality { flex-shrink: 0; padding: 8px 12px; border: 1px solid #E6B44A;
+                     border-radius: 4px; color: #F5D17A; font-size: 0.72rem;
+                     font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+                     white-space: nowrap; }
+  @media (max-width: 640px) {
+    header { align-items: flex-start; flex-direction: column; }
+  }
 </style>
 </head>
 <body>
 <header>
-  <h1> UVM Verification Architecture</h1>
-  <p>Aspen Plus (AP) Main NI700 NIC top-level RTL wrapper for the Arm NI700 interconnect. Connects 26 masters and 18 slaves  ·  AXI4 + Q-Channel + Debug</p>
+  <div>
+    <h1> UVM Verification Architecture</h1>
+    <p>Aspen Plus (AP) Main NI700 NIC top-level RTL wrapper for the Arm NI700 interconnect. Connects 26 masters and 18 slaves  ·  AXI4 + Q-Channel + Debug</p>
+  </div>
+  <div class="confidentiality">Veripoint Technologies — Confidential</div>
 </header>
 <div class="tabs">
   <div class="tab active" onclick="switchTab(0)"> High-Level Architecture</div>
