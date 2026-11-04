@@ -1,571 +1,299 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>UVM Architecture Diagrams</title>
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0F1117; color: #E8ECF0; }
-  header { background: linear-gradient(135deg, #1A2642 0%, #0D1B2A 100%);
-            border-bottom: 2px solid #2C5F8A; padding: 20px 40px; }
-  header h1 { font-size: 1.7rem; color: #4A90D9; }
-  header p  { font-size: 0.84rem; color: #8BA3BC; margin-top: 5px; }
-  .tabs { display: flex; background: #1A2030; border-bottom: 2px solid #2C3E50; padding: 0 40px; }
-  .tab  { padding: 13px 26px; cursor: pointer; font-size: 0.9rem; color: #8BA3BC;
-           border-bottom: 3px solid transparent; transition: all 0.2s; user-select: none; }
-  .tab:hover  { color: #4A90D9; }
-  .tab.active { color: #4A90D9; border-bottom-color: #4A90D9; font-weight: 600; }
-  .panel      { display: none; padding: 28px 40px; }
-  .panel.active { display: block; }
-  .diagram-title { font-size: 1.2rem; font-weight: 700; color: #4A90D9; margin-bottom: 10px; }
-  .diagram-desc  { font-size: 0.83rem; color: #8BA3BC; margin-bottom: 14px; line-height: 1.55; }
-  .legend { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px;
-             padding: 10px 14px; background: #1A2030; border-radius: 8px;
-             border: 1px solid #2C3E50; }
-  .legend-label { font-size: 0.72rem; color: #8BA3BC; font-weight: 700;
-                   text-transform: uppercase; letter-spacing: 0.06em;
-                   width: 100%; margin-bottom: 3px; }
-  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.79rem; color: #C8D6E5; }
-  .swatch { width: 13px; height: 13px; border-radius: 3px; flex-shrink: 0;
-             border: 1px solid rgba(255,255,255,0.18); }
-  .diagram-wrapper { background: #fff; border-radius: 10px; padding: 20px;
-                      box-shadow: 0 4px 24px rgba(0,0,0,0.5); overflow-x: auto; }
-  .mermaid { min-width: 800px; }
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Password Protected Page</title>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #dialogText {
+            color: white;
+            background-color: #333333;
+        }
+        
+        #dialogWrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: table;
+            background-color: #EEEEEE;
+        }
+        
+        #dialogWrapCell {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        #mainDialog {
+            max-width: 400px;
+            margin: 5px;
+            border: solid #AAAAAA 1px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px 3px #AAAAAA;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #FFFFFF;
+            overflow: hidden;
+            text-align: left;
+        }
+        #mainDialog > * {
+            padding: 10px 30px;
+        }
+        #passArea {
+            padding: 20px 30px;
+            background-color: white;
+        }
+        #passArea > * {
+            margin: 5px auto;
+        }
+        #pass {
+            width: 100%;
+            height: 40px;
+            font-size: 30px;
+        }
+        
+        #messageWrapper {
+            float: left;
+            vertical-align: middle;
+            line-height: 30px;
+        }
+        
+        .notifyText {
+            display: none;
+        }
+        
+        #invalidPass {
+            color: red;
+        }
+        
+        #success {
+            color: green;
+        }
+        
+        #submitPass {
+            font-size: 20px;
+            border-radius: 5px;
+            background-color: #E7E7E7;
+            border: solid gray 1px;
+            float: right;
+            cursor: pointer;
+        }
+        #contentFrame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #attribution {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+        #attribution, #attribution a {
+            color: #999;
+        }
+        .error {
+            display: none;
+            color: red;
+        }
+    </style>
+  </head>
+  <body>
+    <iframe id="contentFrame" frameBorder="0" allowfullscreen></iframe>
+    <div id="dialogWrap">
+        <div id="dialogWrapCell">
+            <div id="mainDialog">
+                <div id="dialogText">This page is password protected.</div>
+                <div id="passArea">
+                    <p id="passwordPrompt">Password</p>
+                    <input id="pass" type="password" name="pass" autofocus>
+                    <div>
+                        <span id="messageWrapper">
+                            <span id="invalidPass" class="error">Sorry, please try again.</span>
+                            <span id="trycatcherror" class="error">Sorry, something went wrong.</span>
+                            <span id="success" class="notifyText">Success!</span>
+                            &nbsp;
+                        </span>
+                        <button id="submitPass" type="button">Submit</button>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+                <div id="securecontext" class="error">
+                    <p>
+                        Sorry, but password protection only works over a secure connection. Please load this page via HTTPS.
+                    </p>
+                </div>
+                <div id="nocrypto" class="error">
+                    <p>
+                        Your web browser appears to be outdated. Please visit this page using a modern browser.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="attribution">
+        Protected by <a href="https://pagecrypt.lupine.dev/">PageCrypt</a>
+    </div>
+    <script>
+    (function() {
 
-  /* ── Confidentiality banner & copy deterrents ── */
-  .conf-banner { background: #2A0F14; border: 2px solid #C0392B; border-left: 8px solid #C0392B;
-                 border-radius: 8px; padding: 16px 20px; margin-bottom: 22px; color: #F5D5D1; }
-  .conf-banner .conf-title { font-size: 1.05rem; font-weight: 800; color: #FF6B5B; letter-spacing: 0.08em; margin-bottom: 8px; }
-  .conf-banner .conf-meta  { font-size: 0.82rem; color: #F0B8B0; margin-bottom: 8px; }
-  .conf-banner .conf-head  { font-size: 0.85rem; font-weight: 700; color: #FF6B5B; margin-bottom: 4px; }
-  .conf-banner p { font-size: 0.8rem; line-height: 1.55; margin-top: 4px; }
-  body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
-         -webkit-touch-callout: none; }
-  img, svg { -webkit-user-drag: none; }
-  #wm { position: fixed; inset: 0; pointer-events: none; z-index: 9999; overflow: hidden; }
-  #wm span { position: absolute; white-space: nowrap; font: 700 20px 'Segoe UI', sans-serif;
-             color: rgba(192,57,43,0.16); transform: rotate(-30deg); }
-  @media print { body * { display: none !important; }
-                 body::before { content: "CONFIDENTIAL - Printing is not permitted."; display: block;
-                                font: 700 24px sans-serif; padding: 40px; } }
-</style>
-</head>
-<body>
-<header>
-  <h1> UVM Verification Architecture</h1>
-  <p>Aspen Plus (AP) Main NI700 NIC top-level RTL wrapper for the Arm NI700 interconnect. Connects 26 masters and 18 slaves  ·  AXI4 + Q-Channel + Debug</p>
-</header>
-<div class="tabs">
-  <div class="tab active" onclick="switchTab(0)"> High-Level Architecture</div>
-  <div class="tab"        onclick="switchTab(1)">️ UVM TB Hierarchy</div>
-</div>
+        var pl = "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";
+        
+        var submitPass = document.getElementById('submitPass');
+        var passEl = document.getElementById('pass');
+        var invalidPassEl = document.getElementById('invalidPass');
+        var trycatcherror = document.getElementById('trycatcherror');
+        var successEl = document.getElementById('success');
+        var contentFrame = document.getElementById('contentFrame');
+        
+        // Sanity checks
 
-<!-- ═══ PANEL 0 ═══ -->
-<div id="panel0" class="panel active">
-  <div class="conf-banner">
-    <div class="conf-title">CONFIDENTIAL - PROPRIETARY DOCUMENT</div>
-    <div class="conf-meta">Licensor: Veripoint Technologies Pvt. Ltd<br/>Document: Definitions &nbsp;|&nbsp; Generated: 2026-10-29 08:27:33</div>
-    <div class="conf-head">PROPRIETARY &amp; CONFIDENTIAL</div>
-    <p>This document and all information contained herein are the exclusive property of Veripoint Technologies Pvt. Ltd. and are protected under applicable intellectual property laws.</p>
-    <p>Unauthorised reproduction, distribution, disclosure, or use of this document in whole or in part without prior written consent from Veripoint Technologies Pvt. Ltd. is strictly prohibited.</p>
-    <p>Recipients of this document are bound by confidentiality obligations and may use the information solely for the purpose for which it was disclosed.</p>
-  </div>
-  <div class="diagram-title">Diagram 1 - ni700_top - High-Level Architecture</div>
-  <div class="diagram-desc">
-    DUT at centre with all <b>26 master</b> ports on the left and all <b>18 slave</b> ports on the right
-    (from the Master_Slave_mapping_main_Ni700 and Main_NI700_port_description sheets). Every port has its own interface and its own UVM Agent
-    (master agents drive requests; slave agents act as responders). Q-Channel and Debug sideband agents are also shown.
-    Arrows show direction: → input to DUT · ← output from DUT · ↔ bidirectional.
-  </div>
-  <div class="legend">
-    <div class="legend-label">Colour key - Diagram 1</div>
-    <div class="legend-item"><div class="swatch" style="background:#4A90D9"></div>DUT</div>
-    <div class="legend-item"><div class="swatch" style="background:#16A085"></div>Master Agent (26) / sideband agents</div>
-    <div class="legend-item"><div class="swatch" style="background:#117864"></div>Slave Agent (18, responder)</div>
-    <div class="legend-item"><div class="swatch" style="background:#7F8C8D"></div>Passive Agent (monitors only)</div>
-    <div class="legend-item"><div class="swatch" style="background:#1F618D"></div>Interface (all - uniform colour)</div>
-  </div>
-  <div class="diagram-wrapper"><div class="mermaid" id="diag1"></div></div>
-</div>
+        if (pl === "") {
+            submitPass.disabled = true;
+            passEl.disabled = true;
+            alert("This page is meant to be used with the encryption tool. It doesn't work standalone.");
+            return;
+        }
 
-<!-- ═══ PANEL 1 ═══ -->
-<div id="panel1" class="panel">
-  <div class="conf-banner">
-    <div class="conf-title">CONFIDENTIAL - PROPRIETARY DOCUMENT</div>
-    <div class="conf-meta">Licensor: Veripoint Technologies Pvt. Ltd<br/>Document: Definitions &nbsp;|&nbsp; Generated: 2026-10-29 08:27:33</div>
-    <div class="conf-head">PROPRIETARY &amp; CONFIDENTIAL</div>
-    <p>This document and all information contained herein are the exclusive property of Veripoint Technologies Pvt. Ltd. and are protected under applicable intellectual property laws.</p>
-    <p>Unauthorised reproduction, distribution, disclosure, or use of this document in whole or in part without prior written consent from Veripoint Technologies Pvt. Ltd. is strictly prohibited.</p>
-    <p>Recipients of this document are bound by confidentiality obligations and may use the information solely for the purpose for which it was disclosed.</p>
-  </div>
-  <div class="diagram-title">Diagram 2 - ni700_top - UVM Testbench Hierarchy</div>
-  <div class="diagram-desc">
-    Full UVM TB hierarchy wrapped inside <b>tb_top</b>.
-    <b>Optimised:</b> a single <b>axi_master_agent</b> class (instantiated 26 times) and a single <b>axi_slave_agent</b> class (instantiated 18 times)
-    are shown once each, with one virtual-interface array per side (axi_mst_if[26], axi_slv_if[18]). Per-port behaviour comes from config objects.
-    Active agents (driver + sequencer + monitor) in green.
-    Virtual sequencer inside env connects to all active sequencers (AXI master, AXI slave, Q-channel, debug, clock, reset).
-    <b>All monitors</b> send transactions to scoreboard AND coverage via analysis ports.
-    The test box holds the virtual sequence and the env. Clock and reset each have their own agent and virtual interface, matching Diagram 1.
-  </div>
-  <div class="legend">
-    <div class="legend-label">Colour key - Diagram 2</div>
-    <div class="legend-item"><div class="swatch" style="background:#FADADD;border:2px solid #D81B60"></div>tb_top (top-level module)</div>
-    <div class="legend-item"><div class="swatch" style="background:#E8F8F5;border:2px solid #1ABC9C"></div>UVM Test (box: base_test + virtual seq + env)</div>
-    <div class="legend-item"><div class="swatch" style="background:#2ECC71"></div>Virtual Sequence / Virtual Sequencer</div>
-    <div class="legend-item"><div class="swatch" style="background:#EAF2FB;border:2px solid #2471A3"></div>UVM Env</div>
-    <div class="legend-item"><div class="swatch" style="background:#16A085"></div>Master Agent (x26 instances) / sideband agents</div>
-    <div class="legend-item"><div class="swatch" style="background:#117864"></div>Slave Agent (x18 instances)</div>
-    <div class="legend-item"><div class="swatch" style="background:#7F8C8D"></div>Passive Agent (monitor only)</div>
-    <div class="legend-item"><div class="swatch" style="background:#E74C3C"></div>Scoreboard (uvm_scoreboard) ← all monitors via analysis port</div>
-    <div class="legend-item"><div class="swatch" style="background:#D35400"></div>Coverage (uvm_component) ← all monitors via analysis port</div>
-    <div class="legend-item"><div class="swatch" style="background:#1F618D"></div>Virtual Interfaces (all - uniform colour)</div>
-    <div class="legend-item"><div class="swatch" style="background:#FFE8F3"></div>DUT RTL Module</div>
-  </div>
-  <div class="diagram-wrapper"><div class="mermaid" id="diag2"></div></div>
-</div>
+        if (!isSecureContext) {
+            document.querySelector("#passArea").style.display = "none";
+            document.querySelector("#securecontext").style.display = "block";
+            return;
+        }
 
-<script>
-mermaid.initialize({
-  startOnLoad: false,
-  theme: 'default',
-  flowchart: { curve: 'basis', nodeSpacing: 60, rankSpacing: 80, padding: 20 },
-  securityLevel: 'loose',
-});
-const diag1Src = `flowchart LR
-    DUT["ni700_top<br/>Aspen Plus Main NI700 NIC top-level RTL wrapper (Arm NI700)<br/><b>26 masters · 18 slaves</b>"]
+        if (!crypto.subtle) {
+            document.querySelector("#passArea").style.display = "none";
+            document.querySelector("#nocrypto").style.display = "block";
+            return;
+        }
+        
+        function str2ab(str) {
+            var ustr = atob(str);
+            var buf = new ArrayBuffer(ustr.length);
+            var bufView = new Uint8Array(buf);
+            for (var i=0, strLen=ustr.length; i < strLen; i++) {
+                bufView[i] = ustr.charCodeAt(i);
+            }
+            return bufView;
+        }
 
-    subgraph ENV_M["UVM Environment - AXI Master Agents (26)"]
-        direction TB
-        MA01["mst_agent[0]<br/>R82_MM"]
-        MA02["mst_agent[1]<br/>RISCV_Ni700 (EL2)"]
-        MA03["mst_agent[2]<br/>SYSDMA0_m0"]
-        MA04["mst_agent[3]<br/>SYSDMA0_m1"]
-        MA05["mst_agent[4]<br/>SYSDMA1_m0"]
-        MA06["mst_agent[5]<br/>SYSDMA1_m1"]
-        MA07["mst_agent[6]<br/>SSS_AXI_MASTER"]
-        MA08["mst_agent[7]<br/>SSS_AHB_MASTER"]
-        MA09["mst_agent[8]<br/>BEACE_WR"]
-        MA10["mst_agent[9]<br/>BEACE_RD"]
-        MA11["mst_agent[10]<br/>FEACE"]
-        MA12["mst_agent[11]<br/>FIS_NVME_DMA_M0"]
-        MA13["mst_agent[12]<br/>FIS_NVME_DMA_M1"]
-        MA14["mst_agent[13]<br/>NVM_P0_PCIE_DMA_AXI"]
-        MA15["mst_agent[14]<br/>NVM_P1_PCIE_DMA_AXI"]
-        MA16["mst_agent[15]<br/>NVME_CMD_DMA_AHB"]
-        MA17["mst_agent[16]<br/>NVM_PIO_AHB"]
-        MA18["mst_agent[17]<br/>PSS_DOE_AHB"]
-        MA19["mst_agent[18]<br/>DAP"]
-        MA20["mst_agent[19]<br/>L2P_AXI"]
-        MA21["mst_agent[20]<br/>GDMA_M0_AXI"]
-        MA22["mst_agent[21]<br/>ETR_INST"]
-        MA23["mst_agent[22]<br/>ETR_DATA"]
-        MA24["mst_agent[23]<br/>Message_Ni700"]
-        MA25["mst_agent[24]<br/>BE_DPS"]
-        MA26["mst_agent[25]<br/>BE_NIC"]
-    end
-    subgraph IF_M["Master-side AXI Interfaces (into NIC)"]
-        direction TB
-        MI01["ifs_cpuss_nic_r82_mm_port"]
-        MI02["ifm_el2icnt_nic_axim"]
-        MI03["ifm_sysdma0_nic_m0"]
-        MI04["ifm_sysdma0_nic_m1"]
-        MI05["ifm_sysdma1_nic_m0"]
-        MI06["ifm_sysdma1_nic_m1"]
-        MI07["ifm_sss_nic_axi"]
-        MI08["ifm_sss_nic_ahb_m"]
-        MI09["ifm_beace_nic_m_if_wr"]
-        MI10["ifm_beace_nic_m_if_rd"]
-        MI11["ifm_feace_nic_axim"]
-        MI12["ifm_fis_nic_nvme_dma_m0"]
-        MI13["ifm_fis_nic_nvme_dma_m1"]
-        MI14["ifm_nvm_nic_axim"]
-        MI15["ifm_nvm_nic_axim_p1"]
-        MI16["ifm_nvme_nic_cmd_dma"]
-        MI17["ifm_nvm_pio_ahbm"]
-        MI18["ifm_pss_doe_ahbm"]
-        MI19["dap_m"]
-        MI20["ifs_l2p_nic_axim"]
-        MI21["ifm_gdma_nic_m0"]
-        MI22["ifm_etr_inst"]
-        MI23["ifm_etr_data"]
-        MI24["ifm_msgnic_nic_axi"]
-        MI25["ifm_beni700_main_dps"]
-        MI26["ifm_beni700_main"]
-    end
-    subgraph IF_S["Slave-side AXI Interfaces (out of NIC)"]
-        direction TB
-        SI01["ifs_nic_cpuss_r82_macp"]
-        SI02["ifs_nic_cpuss_r82_acels_tcm_llram"]
-        SI03["ifs_nic_el2icnt_axis"]
-        SI04["ifm_nic_febm0_axi4"]
-        SI05["ifm_nic_febm1_axi4"]
-        SI06["ifs_nic_sdsr0_axi_s_if_rd"]
-        SI07["ifs_nic_sdsr1_axi_s_if_rd"]
-        SI08["ifs_nic_dps_aslv0"]
-        SI09["ifs_nic_dps_aslv1"]
-        SI10["ifs_nic_nvme_cfg"]
-        SI11["ifs_nic_nvme_d2h"]
-        SI12["ifs_nic_feace_axis"]
-        SI13["ifs_nic_qspi_slv"]
-        SI14["ifs_nic_msgicnt_axis"]
-        SI15["dap_s"]
-        SI16["ifs_nic_sss_axi"]
-        SI17["ifs_nic_pss_phy_ahbs"]
-        SI18["ifs_beni700_main"]
-    end
-    subgraph ENV_S["UVM Environment - AXI Slave Agents (18)"]
-        direction TB
-        SA01["slv_agent[0]<br/>R82_MACP (DDR0)"]
-        SA02["slv_agent[1]<br/>R82_ACELS (DTCM/LLRAM)"]
-        SA03["slv_agent[2]<br/>RISCV_Ni700 (EL2)"]
-        SA04["slv_agent[3]<br/>FEBM0"]
-        SA05["slv_agent[4]<br/>FEBM1"]
-        SA06["slv_agent[5]<br/>SDSR0"]
-        SA07["slv_agent[6]<br/>SDSR1"]
-        SA08["slv_agent[7]<br/>DPS_0"]
-        SA09["slv_agent[8]<br/>DPS_1"]
-        SA10["slv_agent[9]<br/>FIS_NVME_CFG"]
-        SA11["slv_agent[10]<br/>FIS_NVME_D2H"]
-        SA12["slv_agent[11]<br/>FEACE"]
-        SA13["slv_agent[12]<br/>QSPI"]
-        SA14["slv_agent[13]<br/>MSG_Ni700"]
-        SA15["slv_agent[14]<br/>DAP"]
-        SA16["slv_agent[15]<br/>SSS"]
-        SA17["slv_agent[16]<br/>PSS_PHY"]
-        SA18["slv_agent[17]<br/>BE_Ni700"]
-    end
+        async function deriveKey(salt, password) {
+            const encoder = new TextEncoder()
+            const baseKey = await crypto.subtle.importKey(
+                'raw',
+                encoder.encode(password),
+                'PBKDF2',
+                false,
+                ['deriveKey'],
+            )
+            return await crypto.subtle.deriveKey(
+                { name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256' },
+                baseKey,
+                { name: 'AES-GCM', length: 256 },
+                true,
+                ['decrypt'],
+            )
+        }
+        
+        async function doSubmit(evt) {
+            submitPass.disabled = true;
+            passEl.disabled = true;
 
-    subgraph ENV_SB["UVM Environment - Sideband Agents"]
-        direction TB
-        qchan_agent["Qchan Agent<br/>(Active Agent)"]
-        debug_agent["Debug Agent<br/>(Active Agent)"]
-        clk_agent["Clock Agent<br/>(Active Agent)"]
-        rst_agent["Reset Agent<br/>(Active Agent)"]
-    end
-    Q_Channel_Interface["Q Channel Interface<br/><i>ARM Q-Channel Low-Power Handshake Protocol</i>"]
-    Debug_Interface["Debug Interface<br/><i>ARM CoreSight Debug Control Sideband</i>"]
-    Clock_Interface["Clock Interface<br/><i>Clock generation for NIC clock domains</i>"]
-    Reset_Interface["Reset Interface<br/><i>Reset generation / sequencing</i>"]
+            let iv, ciphertext, key;
+            
+            try {
+                var unencodedPl = str2ab(pl);
 
-    MA01 <-->|"drives & monitors"| MI01
-    MA02 <-->|"drives & monitors"| MI02
-    MA03 <-->|"drives & monitors"| MI03
-    MA04 <-->|"drives & monitors"| MI04
-    MA05 <-->|"drives & monitors"| MI05
-    MA06 <-->|"drives & monitors"| MI06
-    MA07 <-->|"drives & monitors"| MI07
-    MA08 <-->|"drives & monitors"| MI08
-    MA09 <-->|"drives & monitors"| MI09
-    MA10 <-->|"drives & monitors"| MI10
-    MA11 <-->|"drives & monitors"| MI11
-    MA12 <-->|"drives & monitors"| MI12
-    MA13 <-->|"drives & monitors"| MI13
-    MA14 <-->|"drives & monitors"| MI14
-    MA15 <-->|"drives & monitors"| MI15
-    MA16 <-->|"drives & monitors"| MI16
-    MA17 <-->|"drives & monitors"| MI17
-    MA18 <-->|"drives & monitors"| MI18
-    MA19 <-->|"drives & monitors"| MI19
-    MA20 <-->|"drives & monitors"| MI20
-    MA21 <-->|"drives & monitors"| MI21
-    MA22 <-->|"drives & monitors"| MI22
-    MA23 <-->|"drives & monitors"| MI23
-    MA24 <-->|"drives & monitors"| MI24
-    MA25 <-->|"drives & monitors"| MI25
-    MA26 <-->|"drives & monitors"| MI26
-    MI01 <--> DUT
-    MI02 <--> DUT
-    MI03 <--> DUT
-    MI04 <--> DUT
-    MI05 <--> DUT
-    MI06 <--> DUT
-    MI07 <--> DUT
-    MI08 <--> DUT
-    MI09 <--> DUT
-    MI10 <--> DUT
-    MI11 <--> DUT
-    MI12 <--> DUT
-    MI13 <--> DUT
-    MI14 <--> DUT
-    MI15 <--> DUT
-    MI16 <--> DUT
-    MI17 <--> DUT
-    MI18 <--> DUT
-    MI19 <--> DUT
-    MI20 <--> DUT
-    MI21 <--> DUT
-    MI22 <--> DUT
-    MI23 <--> DUT
-    MI24 <--> DUT
-    MI25 <--> DUT
-    MI26 <--> DUT
-    DUT <--> SI01
-    DUT <--> SI02
-    DUT <--> SI03
-    DUT <--> SI04
-    DUT <--> SI05
-    DUT <--> SI06
-    DUT <--> SI07
-    DUT <--> SI08
-    DUT <--> SI09
-    DUT <--> SI10
-    DUT <--> SI11
-    DUT <--> SI12
-    DUT <--> SI13
-    DUT <--> SI14
-    DUT <--> SI15
-    DUT <--> SI16
-    DUT <--> SI17
-    DUT <--> SI18
-    SI01 <-->|"drives & monitors"| SA01
-    SI02 <-->|"drives & monitors"| SA02
-    SI03 <-->|"drives & monitors"| SA03
-    SI04 <-->|"drives & monitors"| SA04
-    SI05 <-->|"drives & monitors"| SA05
-    SI06 <-->|"drives & monitors"| SA06
-    SI07 <-->|"drives & monitors"| SA07
-    SI08 <-->|"drives & monitors"| SA08
-    SI09 <-->|"drives & monitors"| SA09
-    SI10 <-->|"drives & monitors"| SA10
-    SI11 <-->|"drives & monitors"| SA11
-    SI12 <-->|"drives & monitors"| SA12
-    SI13 <-->|"drives & monitors"| SA13
-    SI14 <-->|"drives & monitors"| SA14
-    SI15 <-->|"drives & monitors"| SA15
-    SI16 <-->|"drives & monitors"| SA16
-    SI17 <-->|"drives & monitors"| SA17
-    SI18 <-->|"drives & monitors"| SA18
-    qchan_agent <-->|"drives & monitors"| Q_Channel_Interface
-    debug_agent <-->|"drives & monitors"| Debug_Interface
-    Q_Channel_Interface <-->|"bidirectional"| DUT
-    Debug_Interface <-->|"bidirectional"| DUT
-    clk_agent -->|"drives"| Clock_Interface
-    rst_agent -->|"drives"| Reset_Interface
-    Clock_Interface -->|"clocks"| DUT
-    Reset_Interface -->|"resets"| DUT
+                const salt = unencodedPl.slice(0, 32)
+                iv = unencodedPl.slice(32, 32 + 16)
+                ciphertext = unencodedPl.slice(32 + 16)
 
-    classDef mAgent fill:#16A085,color:#fff,stroke:#0E6655
-    classDef sAgent fill:#117864,color:#fff,stroke:#0B5345
-    classDef ifc fill:#1F618D,color:#fff,stroke:#154360
-    class MA01,MA02,MA03,MA04,MA05,MA06,MA07,MA08,MA09,MA10,MA11,MA12,MA13,MA14,MA15,MA16,MA17,MA18,MA19,MA20,MA21,MA22,MA23,MA24,MA25,MA26,qchan_agent,debug_agent,clk_agent,rst_agent mAgent
-    class SA01,SA02,SA03,SA04,SA05,SA06,SA07,SA08,SA09,SA10,SA11,SA12,SA13,SA14,SA15,SA16,SA17,SA18 sAgent
-    class MI01,MI02,MI03,MI04,MI05,MI06,MI07,MI08,MI09,MI10,MI11,MI12,MI13,MI14,MI15,MI16,MI17,MI18,MI19,MI20,MI21,MI22,MI23,MI24,MI25,MI26,SI01,SI02,SI03,SI04,SI05,SI06,SI07,SI08,SI09,SI10,SI11,SI12,SI13,SI14,SI15,SI16,SI17,SI18,Q_Channel_Interface,Debug_Interface,Clock_Interface,Reset_Interface ifc
-    style DUT fill:#4A90D9,color:#fff,stroke:#2C5F8A,stroke-width:3px
-    style ENV_M fill:#F0F4FF,stroke:#6C8EBF,stroke-dasharray:6
-    style ENV_S fill:#F0F4FF,stroke:#6C8EBF,stroke-dasharray:6
-    style ENV_SB fill:#F0F4FF,stroke:#6C8EBF,stroke-dasharray:6
-    style IF_M fill:#EAF2FB,stroke:#2471A3,stroke-dasharray:3
-    style IF_S fill:#EAF2FB,stroke:#2471A3,stroke-dasharray:3`;
-const diag2Src = `flowchart TD
+                key = await deriveKey(salt, passEl.value);
+            } catch (e) {
+                trycatcherror.style.display = "inline";
+                console.error(e);
+                return;
+            }
 
-    subgraph TBTOP["tb_top  (Top-level Testbench Module)"]
-        direction TB
+            try {
+                const decryptedArray = new Uint8Array(
+                    await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ciphertext)
+                );
 
-        subgraph TESTBOX["UVM Test"]
-        direction TB
-        TEST["ni700_top_base_test<br/>(parent of all test classes)<br/>extends uvm_test"]
-        VSEQ["ni700_top_virtual_seq<br/>virtual sequence"]
+                let decrypted = new TextDecoder().decode(decryptedArray);
 
-        subgraph ENV_SG["ni700_top_env  extends uvm_env"]
-            direction LR
+                if (decrypted === "") throw "No data returned";
 
-            VSEQR["virtual_sequencer<br/>extends uvm_sequencer"]
+                const basestr = '<base href="." target="_top">';
+                const anchorfixstr = `
+                    <script>
+                        Array.from(document.links).forEach((anchor) => {
+                            const href = anchor.getAttribute("href");
+                            if (href.startsWith("#")) {
+                                anchor.addEventListener("click", function(e) {
+                                    e.preventDefault();
+                                    const targetId = this.getAttribute("href").substring(1);
+                                    const targetEl = document.getElementById(targetId);
+                                    targetEl.scrollIntoView();
+                                });
+                            }
+                        });
+                    <\/script>
+                `;
+                
+                // Set default iframe link targets to _top so all links break out of the iframe
+                if (decrypted.includes("<head>")) decrypted = decrypted.replace("<head>", "<head>" + basestr);
+                else if (decrypted.includes("<!DOCTYPE html>")) decrypted = decrypted.replace("<!DOCTYPE html>", "<!DOCTYPE html>" + basestr);
+                else decrypted = basestr + decrypted;
 
-            subgraph SBCOV_SG["Analysis Components"]
-                direction TB
-                SB["ni700_top_scoreboard<br/>extends uvm_scoreboard"]
-                COV["ni700_top_coverage<br/>extends uvm_component"]
-            end
-
-            subgraph ACTIVE_SG["Active Agents  (sequencer + driver + monitor)"]
-                direction TB
-                subgraph axi_mst_SG["axi_master_agent (x26)"]
-                    direction TB
-                    axi_mst_SEQ["axi_master_sequencer<br/>uvm_sequencer"]
-                    axi_mst_DRV["axi_master_driver<br/>uvm_driver"]
-                    axi_mst_MON["axi_master_monitor<br/>uvm_monitor"]
-                end
-                subgraph axi_slv_SG["axi_slave_agent (x18)"]
-                    direction TB
-                    axi_slv_SEQ["axi_slave_sequencer<br/>uvm_sequencer"]
-                    axi_slv_DRV["axi_slave_driver (responder)<br/>uvm_driver"]
-                    axi_slv_MON["axi_slave_monitor<br/>uvm_monitor"]
-                end
-                subgraph qchan_agent_SG["qchan_agent"]
-                    direction TB
-                    qchan_agent_SEQ["qchan_agent_sequencer<br/>uvm_sequencer"]
-                    qchan_agent_DRV["qchan_agent_driver<br/>uvm_driver"]
-                    qchan_agent_MON["qchan_agent_monitor<br/>uvm_monitor"]
-                end
-                subgraph debug_agent_SG["debug_agent"]
-                    direction TB
-                    debug_agent_SEQ["debug_agent_sequencer<br/>uvm_sequencer"]
-                    debug_agent_DRV["debug_agent_driver<br/>uvm_driver"]
-                    debug_agent_MON["debug_agent_monitor<br/>uvm_monitor"]
-                end
-                subgraph clk_agent_SG["clk_agent"]
-                    direction TB
-                    clk_agent_SEQ["clk_agent_sequencer<br/>uvm_sequencer"]
-                    clk_agent_DRV["clk_agent_driver<br/>uvm_driver"]
-                    clk_agent_MON["clk_agent_monitor<br/>uvm_monitor"]
-                end
-                subgraph rst_agent_SG["rst_agent"]
-                    direction TB
-                    rst_agent_SEQ["rst_agent_sequencer<br/>uvm_sequencer"]
-                    rst_agent_DRV["rst_agent_driver<br/>uvm_driver"]
-                    rst_agent_MON["rst_agent_monitor<br/>uvm_monitor"]
-                end
-            end
-        end
-        end
-
-        axi_mst_if["axi_mst_if [26]<br/>virtual interface (one per master port)<br/>AXI4"]
-        axi_slv_if["axi_slv_if [18]<br/>virtual interface (one per slave port)<br/>AXI4"]
-        qchan_if["qchan_if<br/>virtual interface<br/>ARM Q-Channel Low-Power Handshake Protocol"]
-        debug_if["debug_if<br/>virtual interface<br/>ARM CoreSight Debug Control Sideband"]
-        clk_if["clk_if<br/>virtual interface<br/>Clock generation for NIC clock domains"]
-        rst_if["rst_if<br/>virtual interface<br/>Reset generation / sequencing"]
-
-        DUT["ni700_top DUT<br/>RTL Module"]
-    end
-
-    TEST -->|builds & configures| ENV_SG
-    TEST -->|start sequence| VSEQ
-    VSEQ -->|starts multiple sequences| VSEQR
-
-    VSEQR -->|"connected to (x26)"| axi_mst_SEQ
-    VSEQR -->|"connected to (x18)"| axi_slv_SEQ
-    VSEQR -->|connected to| qchan_agent_SEQ
-    VSEQR -->|connected to| debug_agent_SEQ
-    VSEQR -->|connected to| clk_agent_SEQ
-    VSEQR -->|connected to| rst_agent_SEQ
-
-    axi_mst_SEQ -->|seq items| axi_mst_DRV
-    axi_slv_SEQ -->|seq items| axi_slv_DRV
-    qchan_agent_SEQ -->|seq items| qchan_agent_DRV
-    debug_agent_SEQ -->|seq items| debug_agent_DRV
-    clk_agent_SEQ -->|seq items| clk_agent_DRV
-    rst_agent_SEQ -->|seq items| rst_agent_DRV
-
-    axi_mst_DRV -->|drives| axi_mst_if
-    axi_slv_DRV -->|drives| axi_slv_if
-    qchan_agent_DRV -->|drives| qchan_if
-    debug_agent_DRV -->|drives| debug_if
-    clk_agent_DRV -->|drives| clk_if
-    rst_agent_DRV -->|drives| rst_if
-
-    axi_mst_if -->|samples| axi_mst_MON
-    axi_slv_if -->|samples| axi_slv_MON
-    qchan_if -->|samples| qchan_agent_MON
-    debug_if -->|samples| debug_agent_MON
-    clk_if -->|samples| clk_agent_MON
-    rst_if -->|samples| rst_agent_MON
-
-    axi_mst_if <-->|DUT ports| DUT
-    axi_slv_if <-->|DUT ports| DUT
-    qchan_if <-->|DUT ports| DUT
-    debug_if <-->|DUT ports| DUT
-    clk_if <-->|DUT ports| DUT
-    rst_if <-->|DUT ports| DUT
-
-    axi_mst_MON -->|analysis port| SB
-    axi_slv_MON -->|analysis port| SB
-    qchan_agent_MON -->|analysis port| SB
-    debug_agent_MON -->|analysis port| SB
-    clk_agent_MON -->|analysis port| SB
-    rst_agent_MON -->|analysis port| SB
-
-    axi_mst_MON -->|analysis port| COV
-    axi_slv_MON -->|analysis port| COV
-    qchan_agent_MON -->|analysis port| COV
-    debug_agent_MON -->|analysis port| COV
-    clk_agent_MON -->|analysis port| COV
-    rst_agent_MON -->|analysis port| COV
-
-    SB -->|analysis port| COV
-
-
-    style TBTOP    fill:#FADADD,stroke:#D81B60,stroke-width:3px,color:#AD1457
-    style TEST     fill:#1ABC9C,color:#fff,stroke:#0E8C72,stroke-width:2px
-    style VSEQ     fill:#2ECC71,color:#fff,stroke:#1E8449,stroke-width:2px
-    style VSEQR    fill:#2ECC71,color:#fff,stroke:#1E8449,stroke-width:2px
-    style ENV_SG   fill:#EAF2FB,stroke:#2471A3,stroke-width:2px
-    style SBCOV_SG fill:#FDF2E9,stroke:#E67E22,stroke-width:1px
-    style SB       fill:#E74C3C,color:#fff,stroke:#A93226,stroke-width:2px
-    style COV      fill:#D35400,color:#fff,stroke:#A04000,stroke-width:2px
-    style DUT      fill:#FFE8F3,color:#4A1428,stroke:#D81B60,stroke-width:3px
-    style ACTIVE_SG  fill:#E9F7EF,stroke:#16A085,stroke-width:2px
-    style axi_mst_SG  fill:#D5F5E3,stroke:#16A085,stroke-dasharray:4
-    style axi_mst_SEQ fill:#16A085,color:#fff,stroke:#0E6655
-    style axi_mst_DRV fill:#16A085,color:#fff,stroke:#0E6655
-    style axi_mst_MON fill:#16A085,color:#fff,stroke:#0E6655
-    style axi_slv_SG  fill:#D1F2EB,stroke:#117864,stroke-dasharray:4
-    style axi_slv_SEQ fill:#117864,color:#fff,stroke:#0B5345
-    style axi_slv_DRV fill:#117864,color:#fff,stroke:#0B5345
-    style axi_slv_MON fill:#117864,color:#fff,stroke:#0B5345
-    style qchan_agent_SG  fill:#D5F5E3,stroke:#16A085,stroke-dasharray:4
-    style qchan_agent_SEQ fill:#16A085,color:#fff,stroke:#0E6655
-    style qchan_agent_DRV fill:#16A085,color:#fff,stroke:#0E6655
-    style qchan_agent_MON fill:#16A085,color:#fff,stroke:#0E6655
-    style debug_agent_SG  fill:#D5F5E3,stroke:#16A085,stroke-dasharray:4
-    style debug_agent_SEQ fill:#16A085,color:#fff,stroke:#0E6655
-    style debug_agent_DRV fill:#16A085,color:#fff,stroke:#0E6655
-    style debug_agent_MON fill:#16A085,color:#fff,stroke:#0E6655
-    style clk_agent_SG  fill:#D5F5E3,stroke:#16A085,stroke-dasharray:4
-    style clk_agent_SEQ fill:#16A085,color:#fff,stroke:#0E6655
-    style clk_agent_DRV fill:#16A085,color:#fff,stroke:#0E6655
-    style clk_agent_MON fill:#16A085,color:#fff,stroke:#0E6655
-    style clk_if fill:#1F618D,color:#fff,stroke:#154360,stroke-width:2px
-    style rst_agent_SG  fill:#D5F5E3,stroke:#16A085,stroke-dasharray:4
-    style rst_agent_SEQ fill:#16A085,color:#fff,stroke:#0E6655
-    style rst_agent_DRV fill:#16A085,color:#fff,stroke:#0E6655
-    style rst_agent_MON fill:#16A085,color:#fff,stroke:#0E6655
-    style rst_if fill:#1F618D,color:#fff,stroke:#154360,stroke-width:2px
-    style TESTBOX fill:#E8F8F5,stroke:#1ABC9C,stroke-width:3px,color:#0E6655
-    style axi_mst_if fill:#1F618D,color:#fff,stroke:#154360,stroke-width:2px
-    style axi_slv_if fill:#1F618D,color:#fff,stroke:#154360,stroke-width:2px
-    style qchan_if fill:#1F618D,color:#fff,stroke:#154360,stroke-width:2px
-    style debug_if fill:#1F618D,color:#fff,stroke:#154360,stroke-width:2px`;
-async function renderAll() {
-  for (const [id, src] of [['diag1', diag1Src], ['diag2', diag2Src]]) {
-    try {
-      const r = await mermaid.render('g_' + id, src);
-      document.getElementById(id).innerHTML = r.svg;
-    } catch(e) {
-      document.getElementById(id).innerHTML =
-        '<pre style="color:red;padding:12px">Parse error: ' + e.message + '</pre>';
-      console.error(id, e);
-    }
-  }
-}
-function switchTab(idx) {
-  document.querySelectorAll('.tab').forEach((t,i)   => t.classList.toggle('active', i===idx));
-  document.querySelectorAll('.panel').forEach((p,i) => p.classList.toggle('active', i===idx));
-}
-renderAll();
-</script>
-<script>
-/* ── Copy deterrents (discourage casual copying; not absolute protection) ── */
-(function(){
-  var stop=function(e){e.preventDefault();return false;};
-  ['contextmenu','copy','cut','dragstart','selectstart'].forEach(function(ev){document.addEventListener(ev,stop);});
-  document.addEventListener('keydown',function(e){
-    var k=(e.key||'').toLowerCase(), c=e.ctrlKey||e.metaKey;
-    if(k==='f12'||k==='printscreen'||(c&&['c','x','s','p','u','a'].indexOf(k)>-1)||(c&&e.shiftKey&&['i','j','c'].indexOf(k)>-1)){e.preventDefault();return false;}
-  });
-  window.addEventListener('keyup',function(e){
-    if((e.key||'')==='PrintScreen'){try{navigator.clipboard.writeText('CONFIDENTIAL - Veripoint Technologies Pvt. Ltd.');}catch(x){}}
-  });
-  /* tiled watermark */
-  var wm=document.createElement('div');wm.id='wm';
-  var t='CONFIDENTIAL \u2022 Veripoint Technologies Pvt. Ltd.';
-  for(var y=-100;y<1600;y+=170){for(var x=-200;x<2400;x+=420){
-    var sp=document.createElement('span');sp.textContent=t;sp.style.left=x+'px';sp.style.top=y+'px';wm.appendChild(sp);}}
-  document.body.appendChild(wm);
-})();
-</script>
-</body>
+                // Fix fragment links
+                if (decrypted.includes("</body>")) decrypted = decrypted.replace("</body>", anchorfixstr + '</body>');
+                else if (decrypted.includes("</html>")) decrypted = decrypted.replace("</html>", anchorfixstr + '</html>');
+                else decrypted = decrypted + anchorfixstr;
+                
+                contentFrame.srcdoc = decrypted;
+                
+                successEl.style.display = "inline";
+                setTimeout(function() {
+                    dialogWrap.style.display = "none";
+                }, 1000);
+            } catch (e) {
+                invalidPassEl.style.display = "inline";
+                passEl.value = "";
+                submitPass.disabled = false;
+                passEl.disabled = false;
+                console.error(e);
+                return;
+            }
+        }
+        
+        submitPass.onclick = doSubmit;
+        passEl.onkeypress = function(e){
+            if (!e) e = window.event;
+            var keyCode = e.keyCode || e.which;
+            invalidPassEl.style.display = "none";
+            if (keyCode == '13'){
+              // Enter pressed
+              doSubmit();
+              return false;
+            }
+        }
+    })();
+    </script>
+  </body>
 </html>
