@@ -30,7 +30,8 @@ import {
   PlayCircle,
   ChevronDown,
   Globe,
-  FileText
+  FileText,
+  Download
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -269,33 +270,8 @@ export default function SDCVPXPage() {
       highlight: true
     }
   ];
-  const downloadBrochure = () => {
-    const link = document.createElement("a");
-    link.href = "/sdcvp-x.pdf";
-    link.download = "sdcvp-x.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-// const downloadFile = (url) => {
-//   const link = document.createElement("a");
-//   link.href = url;
-//   link.setAttribute("download", "");
-//   document.body.appendChild(link);
-//   link.click();
-//   document.body.removeChild(link);
-// };
-
-// const downloadBrochure = () => {
-//   const files = [
-//     "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/feature_extraction.py",
-//     "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/default.env"
-//   ];
-
-//   files.forEach((file) => {
-//     window.open(file);
-//   });
-// };
+  const nicIpTestbenchDownloadUrl =
+    "https://github.com/abhilasha-2302/vt-web/releases/download/v1.0/NIC_IP_Verification_Testbench.zip";
   return (
     <Layout>
       <Head>
@@ -347,7 +323,13 @@ export default function SDCVPXPage() {
                       <PlayCircle className="h-5 w-5 mr-3" />
                       Request Demo
                     </a>
-                    {/* Package, verification plan, and architecture-diagram downloads are disabled. */}
+                    <a
+                      href={nicIpTestbenchDownloadUrl}
+                      className="bg-white text-green-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors flex items-center justify-center shadow-lg"
+                    >
+                      <Download className="h-5 w-5 mr-3" />
+                      Download NIC IP Testbench
+                    </a>
                   </div>
                 </div>
               </div>
@@ -697,7 +679,13 @@ export default function SDCVPXPage() {
               <PlayCircle className="h-5 w-5 mr-3" />
               Request Demo
             </a>
-            {/* Package, verification plan, and architecture-diagram downloads are disabled. */}
+            <a
+              href={nicIpTestbenchDownloadUrl}
+              className="bg-green-700 text-white px-12 py-4 rounded-lg font-semibold hover:bg-green-800 transition-colors flex items-center justify-center"
+            >
+              <Download className="h-5 w-5 mr-3" />
+              Download NIC IP Testbench
+            </a>
           </div>
         </div>
       </section>
